@@ -1,9 +1,6 @@
 {% extends 'budget/base.html' %}
 {% block content %}
 
-<!-- 6 minutes into video 7 -->
-
-
 <div class = "container">
     <section class="section section-stats">
         <div class = "row">
@@ -54,7 +51,7 @@
                             <span class="title">{{ expense.category.name }}</span>
                         </div>
                         <a class = "close-icon" onclick = "deleteExpense(this)" data-id = "{{ expense.id }}">
-                            <i class="material-icons red-text right">Close</i>
+                            <i class="material-icons red-text right">Remove Expense</i>
                         </a>
                     </div>
                 </div>
@@ -64,7 +61,7 @@
     </section>
 </div>
 
-<div id = "expenseModal" class = "model">
+<div id = "expenseModal" class = "modal">
     <div class = "modal-content">
         <h4>Add Expenses</h4>
         <form method = 'POST'>
