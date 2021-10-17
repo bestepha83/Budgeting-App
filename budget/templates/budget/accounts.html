@@ -1,29 +1,30 @@
 {% extends 'budget/base.html' %}
 {% block content %}
 
-<!-- 10mins in the video -->
-
 
 <div class = 'container'>
 
-    <h1>My Projects</h1>
+    <h1>My Accounts</h1>
     <hr>
 
     <div class="row">
+        <a href="./add" class=btn-large grey>
+            <span class='bold'>Add Accounts</span>
+        </a>
         {% for project in project_list %}
             <div class="col s12 13">
                 <div class="card-panel">
                     <h3>{{ project.name }}</h3>   
-                    <a href="{% url 'detail' project.slug %}" class="btn">Visit</a>                 
+                    <a href="{% url 'detail' project.slug %}" class="btn">Check</a>                 
                 </div>
             </div>
         {% empty %}
         <div class = "noproject-wrapper center">
-            <h3 class='grey-text'>Sorry, you don't have any projects, yet.</h3>
+            <h3 class='grey-text'>Sorry, you don't have any accounts, yet.</h3>
             <a href="./add" class=btn-large grey>
-                <span class='bold'>Add Projects</span>
+                <span class='bold'>Add Accounts</span>
             </a>
-        </div>            
+        </div>
         {% endfor %}
     </div>
 </div>
