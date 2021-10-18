@@ -4,13 +4,13 @@
 <div class = "container">
     <section class="section section-stats">
         <div class = "row">
-            <div class = "col s12 m12 14">
+            <div class = "col">
                 <div class = "card-panel">
                     <h6 class = "bold">Total Budget</h6>
                     <h1 class = "bold">${{ project.budget }}</h1>
                 </div>
             </div>
-            <div class = "col s12 m12 14">
+            <div class = "col">
                 <div class = "card-panel">
                     <h6 class = "bold">Budget Left</h6>
                     {% if project.budget_left > 0 %}
@@ -22,7 +22,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class = "col s12 m12 14">
+            <div class = "col">
                 <div class = "card-panel">
                     <h6 class = "bold">Total Transactions</h6>
                     <h1 class = "bold">{{ project.total_transactions }}</h1>
@@ -31,15 +31,15 @@
         </div>
     </section>
 
-    <section class = "section section-expenses">
+    <section class = "section-expenses">
         <div class="row">
-            <button class="btn waves-effect right modal-trigger" id = "expense-trigger" href = "#expenseModal" onClick="incomeFunction()">+ Add Income</button>
-            <button class="btn waves-effect right modal-trigger" id = "expense-trigger" href = "#expenseModal" onClick="expenseFunction()">+ Add Expense</button>
+            <button class="modal-trigger" id = "expense-trigger" href = "#expenseModal" onClick="incomeFunction()">+ Add Income</button>
+            <button class="modal-trigger" id = "expense-trigger" href = "#expenseModal" onClick="expenseFunction()">+ Add Expense</button>
         </div>
         <ul class="z-depth-1">
             {% for expense in expense_list %}
             <li>
-                <div class="card-panel z-depth-0 expense">
+                <div class="card-panel expense">
                     <div class="row">
                         <div class="col 16">
                             <span class="title">{{ expense.title }}</span>
