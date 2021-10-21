@@ -48,10 +48,10 @@
                             <span class="title">${{ expense.amount }}</span>
                         </div>
                         <div class="col 1">
-                            <span class="title">{{ expense.category.name }}</span>
+                            <span class="title">{{ expense.date }}</span>
                         </div>
-                        <a class = "close-icon" onclick = "deleteExpense(this)" data-id = "{{ expense.id }}">
-                            <i class="material-icons red-text right">Remove</i>
+                        <a class = "close-icon" onclick = "deleteExpense(this), window.location.reload();" data-id = "{{ expense.id }}">
+                            <i class="red-text right">X</i>
                         </a>
                     </div>
                 </div>
@@ -72,47 +72,13 @@
             <label for = "amount">Amount</label>
             <input name = "amount" id = "amount">
 
-            <select name = "category">
-                {% for category in category_list %}
-                    <option>{{ category.name }}</option>
-                {% endfor %}
-            </select>
+            <label for = "date">Date</label>
+            <input name = "date" id = "date">
 
             <button type = 'submit' class = "btn">Add</button>
         </form>
     </div>
 </div>
-
-<!-- <div id = "expenseModal" class = "modal">
-    <div class = "modal-content">
-        <h4>Add Expenses</h4>
-        <form method = 'POST'>
-            {% csrf_token %}
-            <label for = "title">Title</label>
-            <input name = "title" id = "title">
-        
-            <label for = "amount">Amount</label>
-            <input name = "amount" id = "amount">
-
-            <select name = "category">
-                <option>Bills & Utilities</option>
-                <option>Eating Out</option>
-                <option>Education</option>
-                <option>Entertainment</option>
-                <option>Groceries</option>
-                <option>Health & Medical</option>
-                <option>Insurance</option>
-                <option>Investments</option>
-                <option>Rent</option>
-                <option>Shopping</option>
-                <option>Sports & Fitness</option>
-                <option>Travel</option>
-            </select>
-
-            <button type = 'submit' class = "btn">Add</button>
-        </form>
-    </div>
-</div> -->
 
 <script>
     var elem = document.querySelector('.modal')
@@ -124,12 +90,12 @@
     function incomeFunction(){
         document.getElementById("expense-title").innerHTML = "Add Income";
 
-        document.getElementById("amount").value = -Math.abs(num)
+        document.getElementById("amount").value = -Math.abs(document.getElementById("amount").value)
     }
     
     function expenseFunction(){
         document.getElementById("expense-title").innerHTML = "Add Expense";
-        document.getElementById("amount").value = Math.abs(num)
+        // document.getElementById("amount").value = Math.abs(num)
 
     }
     
