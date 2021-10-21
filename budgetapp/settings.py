@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-6c372$6$4mpjwe_tg)c@*at2%e3b+d_se-f-u*nmua!b&sp&x8
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "https://bestepha-budget-app.herokuapp.com", "localhost:8000"
+    "https://bestepha-budget-app.herokuapp.com/", "localhost", '127.0.0.1'
     ]
 
 
