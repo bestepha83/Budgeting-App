@@ -42,7 +42,7 @@
                 <div class="card-panel expense">
                     <div class="row">
                         <div class="col 16">
-                            <span class="title">{{ expense.title }} Expense</span>
+                            <span class="title">{{ expense.title }}</span>
                         </div>
                         <div class="col 13">
                             <span class="title">${{ expense.amount }}</span>
@@ -92,7 +92,7 @@
             <label for = "amount">Amount</label>
             <input name = "amount" id = "amount">
 
-            <label for = "date">Date</label>
+            <label for = "date">Date (mm/dd/yyyy)</label>
             <input name = "date" id = "date">
 
             <button type = 'submit'  name = "action" value = "expense" class = "btn" id = "income-expense-submit">Add</button>
