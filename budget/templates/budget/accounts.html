@@ -8,9 +8,6 @@
     <hr>
 
     <div class="row">
-        <a href="./add" class=btn-large grey>
-            <span class='bold'>Add Accounts</span>
-        </a>
         {% for project in project_list %}
             <div class="col s12 13">
                 <div class="card-panel">
@@ -19,13 +16,13 @@
                 </div>
             </div>
         {% empty %}
-        <div class = "noproject-wrapper center">
+        <div class = "noproject-wrapper">
             <h3 class='grey-text'>Sorry, you don't have any accounts, yet.</h3>
-            <a href="./add" class=btn-large grey>
-                <span class='bold'>Add Accounts</span>
-            </a>
         </div>
         {% endfor %}
+        <a href="./add" class="btn-large">
+            <span class='bold'>Add Accounts</span>
+        </a>
     </div>
 </div>
 
