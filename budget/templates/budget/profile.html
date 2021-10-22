@@ -33,8 +33,8 @@
 
     <section class = "section-expenses">
         <div class="row">
-            <button class="modal-trigger" id = "expense-trigger" href = "#expenseModal" onClick="incomeFunction()">+ Add Income</button>
-            <button class="modal-trigger" id = "expense-trigger" href = "#expenseModal" onClick="expenseFunction()">+ Add Expense</button>
+            <button class="modal-trigger" id = "income-trigger" href = "#expenseModal" onClick = "incomeFunction()">+ Add Income</button>
+            <button class="modal-trigger" id = "expense-trigger" href = "#expenseModal" onClick = "expenseFunction()">+ Add Expense</button>
         </div>
         <ul class="z-depth-1">
             {% for expense in expense_list %}
@@ -42,7 +42,7 @@
                 <div class="card-panel expense">
                     <div class="row">
                         <div class="col 16">
-                            <span class="title">{{ expense.title }}</span>
+                            <span class="title">{{ expense.title }} Expense</span>
                         </div>
                         <div class="col 13">
                             <span class="title">${{ expense.amount }}</span>
@@ -51,6 +51,26 @@
                             <span class="title">{{ expense.date }}</span>
                         </div>
                         <a class = "close-icon" onclick = "deleteExpense(this), window.location.reload();" data-id = "{{ expense.id }}">
+                            <i class="red-text right">X</i>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+            {% for income in income_list %}
+            <li>
+                <div class="card-panel income">
+                    <div class="row">
+                        <div class="col 16">
+                            <span class="title">{{ income.title }}</span>
+                        </div>
+                        <div class="col 13">
+                            <span class="title">${{ income.amount }}</span>
+                        </div>
+                        <div class="col 1">
+                            <span class="title">{{ income.date }}</span>
+                        </div>
+                        <a class = "close-icon" onclick = "deleteIncome(this), window.location.reload();" data-id = "{{ income.id }}">
                             <i class="red-text right">X</i>
                         </a>
                     </div>
@@ -75,7 +95,7 @@
             <label for = "date">Date</label>
             <input name = "date" id = "date">
 
-            <button type = 'submit' class = "btn">Add</button>
+            <button type = 'submit'  name = "action" value = "expense" class = "btn" id = "income-expense-submit">Add</button>
         </form>
     </div>
 </div>
@@ -89,17 +109,32 @@
 
     function incomeFunction(){
         document.getElementById("expense-title").innerHTML = "Add Income";
+        document.getElementById("income-expense-submit").value = "income";
 
-        document.getElementById("amount").value = -Math.abs(document.getElementById("amount").value)
     }
     
     function expenseFunction(){
         document.getElementById("expense-title").innerHTML = "Add Expense";
-        // document.getElementById("amount").value = Math.abs(num)
-
+        document.getElementById("income-expense-submit").value = "expense";
     }
     
     function deleteExpense(e) {
+
+        let id = e.dataset.id
+        e.closest('li').remove()
+        
+        fetch("", {
+            method: 'DELETE',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({
+                'id': id
+            }),
+            credentials: 'same-origin',
+        })
+    }
+    function deleteIncome(e) {
 
         let id = e.dataset.id
         e.closest('li').remove()

@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
-from .models import Project, Expense
+from .models import Project, Expense, Income
 from django.views.generic import CreateView
 from django.utils.text import slugify
-from .forms import ExpenseForm
+from .forms import ExpenseForm, IncomeForm
 import json
 
 def accounts(request):
@@ -13,16 +13,27 @@ def accounts(request):
 def profile(request, project_slug):
     project = get_object_or_404(Project, slug=project_slug)
     if request.method == "GET":
-        form = ExpenseForm(request.GET)
-        return render(request, 'budget/profile.html', {'project': project, 'expense_list': project.expenses.all(), 'form': form})
+        return render(request, 'budget/profile.html', {'project': project, 'expense_list': project.expenses.all(), 'income_list': project.income.all()})
     elif request.method == "POST":
-        form = ExpenseForm(request.POST)
-        if form.is_valid():
-            title = form.cleaned_data['title']
-            amount = form.cleaned_data['amount']
-            date = form.cleaned_data['date']
+        expenseform = ExpenseForm(request.POST)
+        incomeform = IncomeForm(request.POST)
+        if request.POST['action'] == 'expense' and expenseform.is_valid():
+            title = expenseform.cleaned_data['title']
+            amount = expenseform.cleaned_data['amount']
+            date = expenseform.cleaned_data['date']
         
             Expense.objects.create(
+                project = project,
+                title = title,
+                amount = amount,
+                date = date,
+            ).save()
+        elif request.POST['action'] == 'income' and incomeform.is_valid():
+            title = incomeform.cleaned_data['title']
+            amount = incomeform.cleaned_data['amount']
+            date = incomeform.cleaned_data['date']
+        
+            Income.objects.create(
                 project = project,
                 title = title,
                 amount = amount,
@@ -32,6 +43,8 @@ def profile(request, project_slug):
         id = json.loads(request.body)['id']
         expense = get_object_or_404(Expense, id=id)
         expense.delete()
+        income = get_object_or_404(Income, id=id)
+        income.delete()
         return HttpResponse('')
     return HttpResponseRedirect(project_slug)
 
