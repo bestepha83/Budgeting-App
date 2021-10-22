@@ -1,6 +1,8 @@
 {% extends 'budget/base.html' %}
 {% block content %}
 
+{% include "budget/header.html" %}
+
 <div class = "container">
     <section class="section section-stats">
         <div class = "row">
@@ -22,134 +24,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class = "col">
-                <div class = "card-panel">
-                    <h6 class = "bold">Total Transactions</h6>
-                    <h1 class = "bold">{{ project.total_transactions }}</h1>
-                </div>
-            </div>
         </div>
     </section>
-
-    <section class = "section-expenses">
-        <div class="row">
-            <button class="modal-trigger" id = "income-trigger" href = "#expenseModal" onClick = "incomeFunction()">+ Add Income</button>
-            <button class="modal-trigger" id = "expense-trigger" href = "#expenseModal" onClick = "expenseFunction()">+ Add Expense</button>
-        </div>
-        <ul class="z-depth-1">
-            {% for expense in expense_list %}
-            <li>
-                <div class="card-panel expense">
-                    <div class="row">
-                        <div class="col 16">
-                            <span class="title">{{ expense.title }}</span>
-                        </div>
-                        <div class="col 13">
-                            <span class="title">${{ expense.amount }}</span>
-                        </div>
-                        <div class="col 1">
-                            <span class="title">{{ expense.date }}</span>
-                        </div>
-                        <a class = "close-icon" onclick = "deleteExpense(this), window.location.reload();" data-id = "{{ expense.id }}">
-                            <i class="red-text right">X</i>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            {% endfor %}
-            {% for income in income_list %}
-            <li>
-                <div class="card-panel income">
-                    <div class="row">
-                        <div class="col 16">
-                            <span class="title">{{ income.title }}</span>
-                        </div>
-                        <div class="col 13">
-                            <span class="title">${{ income.amount }}</span>
-                        </div>
-                        <div class="col 1">
-                            <span class="title">{{ income.date }}</span>
-                        </div>
-                        <a class = "close-icon" onclick = "deleteIncome(this), window.location.reload();" data-id = "{{ income.id }}">
-                            <i class="red-text right">X</i>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-    </section>
-</div>
-
-<div id = "expenseModal" class = "modal">
-    <div class = "modal-content">
-        <h4 id = "expense-title">Add Income</h4>
-        <form method = 'POST'>
-            {% csrf_token %}
-            <label for = "title">Title</label>
-            <input name = "title" id = "title">
-        
-            <label for = "amount">Amount</label>
-            <input name = "amount" id = "amount">
-
-            <label for = "date">Date (mm/dd/yyyy)</label>
-            <input name = "date" id = "date">
-
-            <button type = 'submit'  name = "action" value = "expense" class = "btn" id = "income-expense-submit">Add</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    var elem = document.querySelector('.modal')
-    var instance = M.Modal.init(elem)
-
-    var elem = document.querySelector('select')
-    var instance = M.FormSelect.init(elem)
-
-    function incomeFunction(){
-        document.getElementById("expense-title").innerHTML = "Add Income";
-        document.getElementById("income-expense-submit").value = "income";
-
-    }
-    
-    function expenseFunction(){
-        document.getElementById("expense-title").innerHTML = "Add Expense";
-        document.getElementById("income-expense-submit").value = "expense";
-    }
-    
-    function deleteExpense(e) {
-
-        let id = e.dataset.id
-        e.closest('li').remove()
-        
-        fetch("", {
-            method: 'DELETE',
-            headers: {
-                'X-CSRFToken': '{{ csrf_token }}'
-            },
-            body: JSON.stringify({
-                'id': id
-            }),
-            credentials: 'same-origin',
-        })
-    }
-    function deleteIncome(e) {
-
-        let id = e.dataset.id
-        e.closest('li').remove()
-        
-        fetch("", {
-            method: 'DELETE',
-            headers: {
-                'X-CSRFToken': '{{ csrf_token }}'
-            },
-            body: JSON.stringify({
-                'id': id
-            }),
-            credentials: 'same-origin',
-        })
-    }
-</script>
 
 {% endblock %}

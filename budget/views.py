@@ -13,7 +13,13 @@ def accounts(request):
 def profile(request, project_slug):
     project = get_object_or_404(Project, slug=project_slug)
     if request.method == "GET":
-        return render(request, 'budget/profile.html', {'project': project, 'expense_list': project.expenses.all(), 'income_list': project.income.all()})
+        return render(request, 'budget/profile.html', {'project': project})
+    return HttpResponseRedirect(project_slug)
+
+def transactions(request, project_slug):
+    project = get_object_or_404(Project, slug=project_slug)
+    if request.method == "GET":
+        return render(request, 'budget/transactions.html', {'project': project, 'expense_list': project.expenses.all(), 'income_list': project.income.all()})
     elif request.method == "POST":
         expenseform = ExpenseForm(request.POST)
         incomeform = IncomeForm(request.POST)
@@ -46,8 +52,7 @@ def profile(request, project_slug):
         income = get_object_or_404(Income, id=id)
         income.delete()
         return HttpResponse('')
-    return HttpResponseRedirect(project_slug)
-
+    return render(request, 'budget/transactions.html', {'project': project, 'expense_list': project.expenses.all(), 'income_list': project.income.all()})
 
 class ProjectCreateView(CreateView):
     model = Project

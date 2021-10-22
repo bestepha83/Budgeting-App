@@ -1,0 +1,10 @@
+{% extends 'budget/base.html' %}
+{% block content %}
+
+
+<nav>
+    <a href="{% url 'profile' project.slug %}">Profile</a>
+    <a href="{% url 'transactions' project.slug %}">Transactions</a>
+</nav>
+
+{% endblock %}
