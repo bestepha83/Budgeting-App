@@ -39,8 +39,10 @@ h1 {
 .w80 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: right;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    right: 0;
     width: 80%;
 }
 

@@ -13,7 +13,7 @@
     <div class="row">
         {% for project in project_list %}
             <div class="">
-                <div class="card-panel">
+                <div class="card-panel card">
                     <h3>{{ project.name }}</h3>   
                     <a href="{% url 'profile' project.slug %}" class="btn">Check</a>                 
                 </div>
