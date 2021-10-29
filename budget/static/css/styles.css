@@ -1,14 +1,30 @@
-
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1 {
     font-size: 3rem;
+}
+
+/* Navigation */
+
+nav {
+    display: flex;
+}
+nav a {
+    display: flex;
+    justify-content: space-around;
+    align-items: right;
+}
+
+.left-nav {
+    width: 20%;
+    background-color: blue;
 }
 
 /* No Accounts */

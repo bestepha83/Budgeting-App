@@ -12,8 +12,9 @@ def accounts(request):
 
 def profile(request, project_slug):
     project = get_object_or_404(Project, slug=project_slug)
+    project_list = Project.objects.all()
     if request.method == "GET":
-        return render(request, 'budget/profile.html', {'project': project})
+        return render(request, 'budget/profile.html', {'project': project, 'project_list': project_list, 'expense_list': project.expenses.all(), 'income_list': project.income.all()})
     return HttpResponseRedirect(project_slug)
 
 def transactions(request, project_slug):
