@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
 }
+
 html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color:rgb(48, 48, 48);
@@ -18,11 +19,6 @@ h1 {
 nav {
     display: flex;
     background-color:rgb(34, 34, 34);
-}
-nav a {
-    display: flex;
-    justify-content: space-around;
-    align-items: right;
 }
 
 .left-nav {
