@@ -3,22 +3,22 @@
 {% include "./header.html" %}
 
 <div class = "container w80">
-    <section class="section section-stats">
+    <section class="section-stats">
         <div class = "row">
             <div class = "col">
-                <div class = "card-panel">
+                <div class = "card-panel card">
                     <h6 class = "bold">Total Transactions</h6>
                     <h1 class = "bold">{{ project.total_transactions }}</h1>
                 </div>
             </div>
             <div class = "col">
-                <div class = "card-panel">
+                <div class = "card-panel card">
                     <h6 class = "bold">Total Budget</h6>
                     <h1 class = "bold">${{ project.budget }}</h1>
                 </div>
             </div>
             <div class = "col">
-                <div class = "card-panel">
+                <div class = "card-panel card">
                     <h6 class = "bold">Budget Left</h6>
                     {% if project.budget_left > 0 %}
                         <h1 class = "bold green-text">${{ project.budget_left }}</h1>
@@ -40,7 +40,7 @@
         <ul class="z-depth-1">
             {% for expense in expense_list %}
             <li>
-                <div class="card-panel expense">
+                <div class="card-panel expense card">
                     <div class="row">
                         <div class="col 16">
                             <span class="title">{{ expense.title }}</span>
@@ -60,7 +60,7 @@
             {% endfor %}
             {% for income in income_list %}
             <li>
-                <div class="card-panel income">
+                <div class="card-panel income card">
                     <div class="row">
                         <div class="col 16">
                             <span class="title">{{ income.title }}</span>

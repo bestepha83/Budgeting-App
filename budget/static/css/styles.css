@@ -6,7 +6,9 @@
 
 html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color:rgb(48, 48, 48);
+    background-color:rgb(31, 31, 31);
+}
+body {
     color: white;
 }
 
@@ -16,9 +18,13 @@ h1 {
 
 /* Navigation */
 
-nav {
+.nav-dec {
     display: flex;
-    background-color:rgb(34, 34, 34);
+    background-color:rgb(28, 28, 28);
+}
+
+.nav-dec a {
+    margin: 0 1.5rem;
 }
 
 .left-nav {
@@ -26,6 +32,9 @@ nav {
 }
 
 .w80 {
+    display: flex;
+    justify-content: right;
+    align-items: center;
     width: 80%;
 }
 
@@ -44,7 +53,9 @@ nav {
 /* Accounts */
 
 
-
+.card {
+    background-color:rgb(28, 28, 28);
+}
 
 
 .section-stats .card-panel {
