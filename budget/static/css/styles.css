@@ -6,10 +6,10 @@
 
 html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color:rgb(31, 31, 31);
+    background-color:rgb(40, 40, 40);
 }
 body {
-    color: white;
+    color: gray;
 }
 
 h1 {
@@ -28,6 +28,11 @@ h1 {
 }
 
 .left-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
     width: 20%;
 }
 
