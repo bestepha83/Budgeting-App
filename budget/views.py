@@ -6,6 +6,10 @@ from django.utils.text import slugify
 from .forms import ExpenseForm, IncomeForm
 import json
 
+def header(request):
+    project_list = Project.objects.all()
+    return render(request, 'budget/header.html', {'project_list': project_list})
+
 def accounts(request):
     project_list = Project.objects.all()
     return render(request, 'budget/accounts.html', {'project_list': project_list})
@@ -18,9 +22,10 @@ def profile(request, project_slug):
     return HttpResponseRedirect(project_slug)
 
 def transactions(request, project_slug):
+    project_list = Project.objects.all()
     project = get_object_or_404(Project, slug=project_slug)
     if request.method == "GET":
-        return render(request, 'budget/transactions.html', {'project': project, 'expense_list': project.expenses.all(), 'income_list': project.income.all()})
+        return render(request, 'budget/transactions.html', {'project': project, 'project_list': project_list, 'expense_list': project.expenses.all(), 'income_list': project.income.all()})
     elif request.method == "POST":
         expenseform = ExpenseForm(request.POST)
         incomeform = IncomeForm(request.POST)
