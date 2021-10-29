@@ -40,9 +40,9 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
-    position: absolute;
-    right: 0;
+    align-items: left;
+    /* position: absolute;
+    right: 0; */
     width: 80%;
 }
 
