@@ -6,10 +6,6 @@ from django.utils.text import slugify
 from .forms import ExpenseForm, IncomeForm
 import json
 
-def header(request):
-    project_list = Project.objects.all()
-    return render(request, 'budget/header.html', {'project_list': project_list})
-
 def accounts(request):
     project_list = Project.objects.all()
     return render(request, 'budget/accounts.html', {'project_list': project_list})
@@ -53,10 +49,10 @@ def transactions(request, project_slug):
         id = json.loads(request.body)['id']
         expense = get_object_or_404(Expense, id=id)
         expense.delete()
-        income = get_object_or_404(Income, id=id)
-        income.delete()
+        # income = get_object_or_404(Income, id=incomeid)
+        # income.delete()
         return HttpResponse('')
-    return render(request, 'budget/transactions.html', {'project': project, 'expense_list': project.expenses.all(), 'income_list': project.income.all()})
+    return render(request, 'budget/transactions.html', {'project': project, 'project_list': project_list, 'expense_list': project.expenses.all(), 'income_list': project.income.all()})
 
 class ProjectCreateView(CreateView):
     model = Project

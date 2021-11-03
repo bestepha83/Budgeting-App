@@ -18,10 +18,6 @@
                     <a href="{% url 'profile' project.slug %}" class="btn">Check</a>                 
                 </div>
             </div>
-        {% empty %}
-        <div class = "noproject-wrapper">
-            <h3 class='grey-text'>Sorry, you don't have any accounts, yet.</h3>
-        </div>
         {% endfor %}
         <a href="./add" class="btn-large">
             <span class='bold'>Add Accounts</span>

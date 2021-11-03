@@ -27,12 +27,12 @@
             </div>
         </div>
     </section>
-    <section class="section-stats">
-        <h4>Recent Expenses</h4>
+    <section class = "section-expenses">
+        <h3>Recent Expenses</h3>
         <ul class="z-depth-1">
             {% for expense in expense_list %}
             <li>
-                <div class="card-panel expense">
+                <div class="card-panel expense card">
                     <div class="row">
                         <div class="col 16">
                             <span class="title">{{ expense.title }}</span>
@@ -61,13 +61,6 @@
     </section>
 </div>
 
-<script>
-    var elem = document.querySelector('.modal')
-    var instance = M.Modal.init(elem)
-
-    var elem = document.querySelector('select')
-    var instance = M.FormSelect.init(elem)
-</script>
 
 
 {% endblock %}
