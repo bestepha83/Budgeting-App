@@ -44,7 +44,33 @@ h1 {
     width: 80%;
 }
 
+
+/* Accounts */
+
+.accounts-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 80%;
+}
+
+.accounts-section .account-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-around;
+}
+
+.accounts-section .account-card{
+    display: flex;
+    flex-direction: column;
+    height: 3rem;
+    width: 25%;
+    background-color:rgb(28, 28, 28);
+}
+
 /* No Accounts */
+
 .noproject-wrapper {
     margin-top: 250px;
     padding: 80px 0px;
@@ -56,11 +82,9 @@ h1 {
     margin-bottom: 50px;
 }
 
-/* Accounts */
 
-.card {
-    background-color:rgb(28, 28, 28);
-}
+
+
 
 .section-stats .card-panel {
     margin: 8px;

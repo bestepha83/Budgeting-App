@@ -2,18 +2,16 @@
 {% block content %}
 
 
-<div class = 'container'>
+<div class = "accounts-section">
 
     <h1>My Accounts</h1>
     <hr>
 
-    <div class="row">
+    <div class = "account-cards">
         {% for project in project_list %}
-            <div class="col s12 13">
-                <div class="card-panel">
-                    <h3>{{ project.name }}</h3>   
-                    <a href="{% url 'profile' project.slug %}" class="btn">Check</a>                 
-                </div>
+            <div class="account-card">
+                <h3>{{ project.name }}</h3>   
+                <a href="{% url 'profile' project.slug %}" class="btn">Check</a>                 
             </div>
         {% empty %}
         <div class = "noproject-wrapper">
