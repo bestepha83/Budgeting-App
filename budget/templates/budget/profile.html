@@ -7,11 +7,11 @@
     <h1>{{ project.name }}</h1>
     <section class="profile-stats">
         <div class = "stat-card">
-            <h6>Initial Budget</h6>
+            <h5>Initial Budget</h6>
             <h1>${{ project.budget }}</h1>
         </div>
         <div class = "stat-card">
-            <h6>Budget Left</h6>
+            <h5>Budget Left</h6>
             {% if project.budget_left > 0 %}
                 <h1>${{ project.budget_left }}</h1>
             {% elif project.budget_left == 0 %}
