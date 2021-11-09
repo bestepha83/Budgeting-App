@@ -43,9 +43,16 @@
                         <div class="col 1">
                             <span class="title">{{ expense.date }}</span>
                         </div>
+                        <div class="col 1">
+                            <span class="title">{{ expense.category }}</span>
+                        </div>
                     </div>
                 </div>
             </li>
+            {% empty %}
+            <div class = "">
+                <h3 class='grey-text'>You have no expenses yet</h3>
+            </div>
             {% endfor %}
         </ul>
     </section>

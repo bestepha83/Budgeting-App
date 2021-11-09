@@ -2,6 +2,15 @@ from django.db import models
 from django.utils.text import slugify
 import datetime
 
+SELECT_CATEGORY_CHOICES = [
+    ("Food","Food"),
+    ("Travel","Travel"),
+    ("Shopping","Shopping"),
+    ("Necessities","Necessities"),
+    ("Entertainment","Entertainment"),
+    ("Other","Other")
+]
+
 class Project(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True, blank=True)
@@ -28,11 +37,13 @@ class Project(models.Model):
         expense_list = Expense.objects.filter(project=self)
         return len(expense_list) + len(income_list)
 
+
 class Expense(models.Model):
     project = models.ForeignKey(Project, on_delete = models.CASCADE, related_name = 'expenses')
     title = models.CharField(max_length=100)
     amount = models.DecimalField(max_digits=8, decimal_places=2)
     date = models.DateField(("Date"), default=datetime.date.today)
+    category = models.CharField( max_length = 20, choices = SELECT_CATEGORY_CHOICES , default ='Food')
 
     class Meta:
         ordering = ('-amount',)
@@ -42,6 +53,7 @@ class Income(models.Model):
     title = models.CharField(max_length=100)
     amount = models.DecimalField(max_digits=8, decimal_places=2)
     date = models.DateField(("Date"), default=datetime.date.today)
+    category = models.CharField( max_length = 20, choices = SELECT_CATEGORY_CHOICES , default ='Food')
 
     class Meta:
         ordering = ('-amount',)

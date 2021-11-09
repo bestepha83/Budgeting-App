@@ -27,30 +27,37 @@ def transactions(request, project_slug):
             title = expenseform.cleaned_data['title']
             amount = expenseform.cleaned_data['amount']
             date = expenseform.cleaned_data['date']
+            category = expenseform.cleaned_data['category']
         
             Expense.objects.create(
                 project = project,
                 title = title,
                 amount = amount,
                 date = date,
+                category = category,
             ).save()
         elif request.POST['action'] == 'income' and incomeform.is_valid():
             title = incomeform.cleaned_data['title']
             amount = incomeform.cleaned_data['amount']
             date = incomeform.cleaned_data['date']
-        
+            category = incomeform.cleaned_data['category']
+
             Income.objects.create(
                 project = project,
                 title = title,
                 amount = amount,
                 date = date,
+                category = category,
             ).save()
     elif request.method == 'DELETE':
-        id = json.loads(request.body)['id']
-        expense = get_object_or_404(Expense, id=id)
-        expense.delete()
-        # income = get_object_or_404(Income, id=incomeid)
-        # income.delete()
+        if isinstance(json.loads(request.body), Expense):
+            id = json.loads(request.body)['id']
+            expense = get_object_or_404(Expense, id=id)
+            expense.delete()
+        elif isinstance(json.loads(request.body), Income):
+            id = json.loads(request.body)['id']
+            income = get_object_or_404(Income, id=id)
+            income.delete()
         return HttpResponse('')
     return render(request, 'budget/transactions.html', {'project': project, 'project_list': project_list, 'expense_list': project.expenses.all(), 'income_list': project.income.all()})
 
