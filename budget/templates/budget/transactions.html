@@ -2,34 +2,26 @@
 {% block content %}
 {% include "./header.html" %}
 
-<div class = "container w80">
-    <section class="section-stats">
-        <h1 class = "bold">${{ project.budget }}</h1> 
-        <div class = "row">
-            <div class = "col">
-                <div class = "card-panel card">
-                    <h6 class = "bold">Total Transactions</h6>
-                    <h1 class = "bold">{{ project.total_transactions }}</h1>
-                </div>
-            </div>
-            <div class = "col">
-                <div class = "card-panel card">
-                    <h6 class = "bold">Total Budget</h6>
-                    <h1 class = "bold">${{ project.budget }}</h1>
-                </div>
-            </div>
-            <div class = "col">
-                <div class = "card-panel card">
-                    <h6 class = "bold">Budget Left</h6>
-                    {% if project.budget_left > 0 %}
-                        <h1 class = "bold green-text">${{ project.budget_left }}</h1>
-                    {% elif project.budget_left == 0 %}
-                        <h1 class = "bold orange-text">${{ project.budget_left }}</h1>
-                    {% else %}
-                        <h1 class = "bold red-text">${{ project.budget_left }}</h1>
-                    {% endif %}
-                </div>
-            </div>
+<div class = "transactions-section">
+    <h1 class = "bold">${{ project.name }}</h1> 
+    <section class="profile-stats">
+        <div class = "stat-card">
+            <h6>Total Transactions</h6>
+            <h1>{{ project.total_transactions }}</h1>
+        </div>
+        <div class = "stat-card">
+            <h6>Initial Budget</h6>
+            <h1>${{ project.budget }}</h1>
+        </div>
+        <div class = "stat-card">
+            <h6>Budget Left</h6>
+            {% if project.budget_left > 0 %}
+                <h1>${{ project.budget_left }}</h1>
+            {% elif project.budget_left == 0 %}
+                <h1>${{ project.budget_left }}</h1>
+            {% else %}
+                <h1>${{ project.budget_left }}</h1>
+            {% endif %}
         </div>
     </section>
 
