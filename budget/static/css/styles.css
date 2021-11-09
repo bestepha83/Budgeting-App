@@ -64,6 +64,8 @@ h1 {
 .accounts-section {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 80%;
 }
 
@@ -77,8 +79,8 @@ h1 {
 .accounts-section .account-card{
     display: flex;
     flex-direction: column;
-    height: 3rem;
-    width: 25%;
+    height: 30rem;
+    width: 50%;
     background-color:rgb(28, 28, 28);
 }
 
@@ -199,7 +201,7 @@ h1 {
     align-items: space-around;
     padding: 3rem;
     background-color: rgb(28, 28, 28);
-    width: 25rem;
+    width: 20rem;
     height: 15rem;
 }
 
@@ -214,7 +216,7 @@ h1 {
 .section-expenses .expense-row {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
