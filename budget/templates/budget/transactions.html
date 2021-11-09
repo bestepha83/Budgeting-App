@@ -34,59 +34,51 @@
     </section>
 
     <section class = "section-expenses">
-        <div class="row">
-            <button class="modal-trigger btn" id = "income-trigger" href = "#expenseModal" onClick = "incomeFunction()">+ Add Income</button>
-            <button class="modal-trigger btn" id = "expense-trigger" href = "#expenseModal" onClick = "expenseFunction()">+ Add Expense</button>
+        <div class="button-row">
+            <button class="modal-trigger account-button" id = "income-trigger" href = "#expenseModal" onClick = "incomeFunction()">+ Add Income</button>
+            <button class="modal-trigger account-button" id = "expense-trigger" href = "#expenseModal" onClick = "expenseFunction()">+ Add Expense</button>
         </div>
-        <ul class="z-depth-1">
+        <ul class="expense-list">
             {% for expense in expense_list %}
             <li>
-                <div class="card-panel expense card">
-                    <div class="row">
-                        <div class="col">
-                            <span class="title">{{ expense.title }}</span>
-                        </div>
-                        <div class="col">
-                            <span class="title">${{ expense.amount }}</span>
-                        </div>
-                        <div class="col">
-                            <span class="title">{{ expense.date }}</span>
-                        </div>
-                        <div class="col">
-                            <span class="title">{{ expense.category }}</span>
-                        </div>
-                        <a class = "close-icon" name = "action" value = "expense" onclick = "deleteExpense(this), window.location.reload();" data-id = "{{ expense.id }}">
-                            <i class="red-text right">X</i>
-                        </a>
-                    </div>
+                <div class="expense-col">
+                    <spanc>{{ expense.title }}</span>
                 </div>
+                <div class="expense-col">
+                    <spanc>${{ expense.amount }}</span>
+                </div>
+                <div class="expense-col">
+                    <spanc>{{ expense.date }}</span>
+                </div>
+                <div class="expense-col">
+                    <spanc>{{ expense.category }}</span>
+                </div>
+                <a class = "close-icon" name = "action" value = "expense" onclick = "deleteExpense(this), window.location.reload();" data-id = "{{ expense.id }}">
+                    <i class="red-text right">X</i>
+                </a>
             </li>
             {% empty %}
             <div class = "">
-                <h3 class='grey-text'>You have no expenses yet</h3>
+                <h3>You have no expenses yet</h3>
             </div>
             {% endfor %}
             {% for income in income_list %}
             <li>
-                <div class="card-panel income card">
-                    <div class="row">
-                        <div class="col">
-                            <span class="title">{{ income.title }}</span>
-                        </div>
-                        <div class="col">
-                            <span class="title">${{ income.amount }}</span>
-                        </div>
-                        <div class="col">
-                            <span class="title">{{ income.date }}</span>
-                        </div>
-                        <div class="col">
-                            <span class="title">{{ income.category }}</span>
-                        </div>
-                        <a class = "close-icon"  name = "action" value = "income" onclick = "deleteIncome(this), window.location.reload();"data-id = "{{ income.id }}">
-                            <i class="red-text right">X</i>
-                        </a>
-                    </div>
+                <div class="expense-col">
+                    <spanc>{{ expense.title }}</span>
                 </div>
+                <div class="expense-col">
+                    <spanc>${{ expense.amount }}</span>
+                </div>
+                <div class="expense-col">
+                    <spanc>{{ expense.date }}</span>
+                </div>
+                <div class="expense-col">
+                    <spanc>{{ expense.category }}</span>
+                </div>
+                <a class = "close-icon"  name = "action" value = "income" onclick = "deleteIncome(this), window.location.reload();"data-id = "{{ income.id }}">
+                    <i class="red-text right">X</i>
+                </a>
             </li>
             {% empty %}
             <div class = "">
