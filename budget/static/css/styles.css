@@ -125,7 +125,7 @@ h1 {
     flex-direction: column;
     position: relative;
     left: 20%;
-    width: 100%;
+    width: 80%;
     padding: 3rem;
     overflow: hidden;
 }
@@ -134,7 +134,7 @@ h1 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 90%;
+    width: 80%;
 }
 
 .profile-section .stat-card{
@@ -214,7 +214,7 @@ h1 {
 .section-expenses .expense-row {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
