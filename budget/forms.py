@@ -4,10 +4,10 @@ class ExpenseForm(forms.Form):
     title = forms.CharField()
     amount = forms.IntegerField()
     date = forms.DateField()
-    category = forms.ChoiceField()
+    category = forms.CharField()
 
 class IncomeForm(forms.Form):
     title = forms.CharField()
     amount = forms.IntegerField()
     date = forms.DateField()
-    category = forms.ChoiceField()
+    category = forms.CharField()

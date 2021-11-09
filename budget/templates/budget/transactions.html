@@ -42,16 +42,16 @@
             <li>
                 <div class="card-panel expense card">
                     <div class="row">
-                        <div class="col 16">
+                        <div class="col">
                             <span class="title">{{ expense.title }}</span>
                         </div>
-                        <div class="col 13">
+                        <div class="col">
                             <span class="title">${{ expense.amount }}</span>
                         </div>
-                        <div class="col 1">
+                        <div class="col">
                             <span class="title">{{ expense.date }}</span>
                         </div>
-                        <div class="col 1">
+                        <div class="col">
                             <span class="title">{{ expense.category }}</span>
                         </div>
                         <a class = "close-icon" name = "action" value = "expense" onclick = "deleteExpense(this), window.location.reload();" data-id = "{{ expense.id }}">
@@ -60,29 +60,37 @@
                     </div>
                 </div>
             </li>
+            {% empty %}
+            <div class = "">
+                <h3 class='grey-text'>You have no expenses yet</h3>
+            </div>
             {% endfor %}
             {% for income in income_list %}
             <li>
                 <div class="card-panel income card">
                     <div class="row">
-                        <div class="col 16">
+                        <div class="col">
                             <span class="title">{{ income.title }}</span>
                         </div>
-                        <div class="col 13">
+                        <div class="col">
                             <span class="title">${{ income.amount }}</span>
                         </div>
-                        <div class="col 1">
+                        <div class="col">
                             <span class="title">{{ income.date }}</span>
                         </div>
-                        <div class="col 1">
+                        <div class="col">
                             <span class="title">{{ income.category }}</span>
                         </div>
-                        <a class = "close-icon"  name = "action" value = "expense" onclick = "deleteExpense(this), window.location.reload();" data-id = "{{ income.id }}">
+                        <a class = "close-icon"  name = "action" value = "income" onclick = "deleteExpense(this), window.location.reload();" data-id = "{{ income.id }}">
                             <i class="red-text right">X</i>
                         </a>
                     </div>
                 </div>
             </li>
+            {% empty %}
+            <div class = "">
+                <h3 class='grey-text'>You have no income yet</h3>
+            </div>
             {% endfor %}
         </ul>
     </section>
@@ -102,8 +110,8 @@
             <label for = "date">Date (mm/dd/yyyy)</label>
             <input name = "date" id = "date">
 
-            <div class="f1">Select Category<br>
-                <select class="Category" name="Category" required><br>
+            <label class="f1">Category<br>
+                <select class="Category" name="category" required><br>
                     <option value="Food">Food</option>
                     <option value="Travel">Travel</option>
                     <option value="Shopping">shopping</option>
@@ -112,7 +120,7 @@
                     <option value="Others">Others</option>
                         
                 </select><br>
-            </div>
+            </label>
 
             <button type = 'submit'  name = "action" value = "expense" class = "btn" id = "income-expense-submit">Add</button>
         </form>
