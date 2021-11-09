@@ -3,55 +3,45 @@
 
 {% include "budget/header.html" %}
 
-<div class = "container w80">
+<div class = "profile-section">
     <h1>{{ project.name }}</h1>
-    <section class="section-stats">
-        <div class = "row">
-            <div class = "col">
-                <div class = "card-panel card">
-                    <h6 class = "bold">Initial Budget</h6>
-                    <h1 class = "bold">${{ project.budget }}</h1>
-                </div>
-            </div>
-            <div class = "col">
-                <div class = "card-panel card">
-                    <h6 class = "bold">Budget Left</h6>
-                    {% if project.budget_left > 0 %}
-                        <h1 class = "bold green-text">${{ project.budget_left }}</h1>
-                    {% elif project.budget_left == 0 %}
-                        <h1 class = "bold orange-text">${{ project.budget_left }}</h1>
-                    {% else %}
-                        <h1 class = "bold red-text">${{ project.budget_left }}</h1>
-                    {% endif %}
-                </div>
-            </div>
+    <section class="profile-stats">
+        <div class = "stat-card">
+            <h6>Initial Budget</h6>
+            <h1>${{ project.budget }}</h1>
+        </div>
+        <div class = "stat-card">
+            <h6>Budget Left</h6>
+            {% if project.budget_left > 0 %}
+                <h1>${{ project.budget_left }}</h1>
+            {% elif project.budget_left == 0 %}
+                <h1>${{ project.budget_left }}</h1>
+            {% else %}
+                <h1>${{ project.budget_left }}</h1>
+            {% endif %}
         </div>
     </section>
     <section class = "section-expenses">
         <h3>Recent Expenses</h3>
-        <ul class="z-depth-1">
+        <ul class="expense-list">
             {% for expense in expense_list %}
             <li>
-                <div class="card-panel expense card">
-                    <div class="row">
-                        <div class="col 16">
-                            <span class="title">{{ expense.title }}</span>
-                        </div>
-                        <div class="col 13">
-                            <span class="title">${{ expense.amount }}</span>
-                        </div>
-                        <div class="col 1">
-                            <span class="title">{{ expense.date }}</span>
-                        </div>
-                        <div class="col 1">
-                            <span class="title">{{ expense.category }}</span>
-                        </div>
-                    </div>
+                <div class="expense-col">
+                    <spanc>{{ expense.title }}</span>
+                </div>
+                <div class="expense-col">
+                    <spanc>${{ expense.amount }}</span>
+                </div>
+                <div class="expense-col">
+                    <spanc>{{ expense.date }}</span>
+                </div>
+                <div class="expense-col">
+                    <spanc>{{ expense.category }}</span>
                 </div>
             </li>
             {% empty %}
             <div class = "">
-                <h3 class='grey-text'>You have no expenses yet</h3>
+                <h3>You have no expenses yet</h3>
             </div>
             {% endfor %}
         </ul>
