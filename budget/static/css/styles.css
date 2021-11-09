@@ -84,8 +84,9 @@ h1 {
 .account-button {
     background-color: #9705d1;
     outline: none;
-    width: 3rem;
-    height: 2.3rem;
+    width: 6rem;
+    height: 4rem;
+    border-radius: 3px;
     color:rgb(255, 255, 255);
     transition: 0.3s ease;
 }
@@ -128,7 +129,7 @@ h1 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 80%;
+    width: 100%;
 }
 
 .profile-section .stat-card{
@@ -138,8 +139,8 @@ h1 {
     align-items: space-around;
     padding: 1rem;
     background-color: rgb(28, 28, 28);
-    width: 35rem;
-    height: 20rem;
+    width: 20rem;
+    height: 15rem;
 }
 
 .section-expenses {
@@ -183,7 +184,7 @@ h1 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 80%;
+    width: 100%;
 }
 
 .transactions-section .stat-card {
@@ -193,8 +194,8 @@ h1 {
     align-items: space-around;
     padding: 3rem;
     background-color: rgb(28, 28, 28);
-    width: 25rem;
-    height: 20rem;
+    width: 20rem;
+    height: 15rem;
 }
 
 .section-expenses .button-row {
