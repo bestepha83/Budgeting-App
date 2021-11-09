@@ -25,6 +25,7 @@ h1 {
 
 .nav-dec a {
     margin: 0 1.5rem;
+    font-size: 1.3rem;
 }
 
 .left-nav {
@@ -35,6 +36,21 @@ h1 {
     position: absolute;
     width: 20%;
 }
+
+.left-nav .project-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-around;
+}
+
+.left-nav .project-card {
+    width: 80%;
+    height: 15rem;
+    background-color:rgb(28, 28, 28);
+}
+
 
 
 /* Accounts */
@@ -102,22 +118,22 @@ h1 {
     overflow: hidden;
 }
 
-.profile-section .profile-stats{
+.profile-stats{
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 50%;
 }
 
-.profile-section .stat-card{
+.stat-card{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: space-around;
     padding: 1rem;
     background-color: rgb(28, 28, 28);
-    width: 6rem;
-    height: 4rem;
+    width: 35rem;
+    height: 30rem;
 }
 
 .section-expenses {
@@ -133,8 +149,9 @@ h1 {
     justify-content: space-around;
     align-items: center;
     background-color:rgb(28, 28, 28);
-    height: 1.5rem;
+    height: 3rem;
     margin: 0.5rem 0;
+    padding: 1rem 0;
 }
 
 .section-expenses .expense-col {
