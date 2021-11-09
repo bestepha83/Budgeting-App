@@ -79,16 +79,16 @@
             {% for income in income_list %}
             <li>
                 <div class="expense-col">
-                    <spanc>{{ expense.title }}</span>
+                    <spanc>{{ income.title }}</span>
                 </div>
                 <div class="expense-col">
-                    <spanc>${{ expense.amount }}</span>
+                    <spanc>${{ income.amount }}</span>
                 </div>
                 <div class="expense-col">
-                    <spanc>{{ expense.date }}</span>
+                    <spanc>{{ income.date }}</span>
                 </div>
                 <div class="expense-col">
-                    <spanc>{{ expense.category }}</span>
+                    <spanc>{{ income.category }}</span>
                 </div>
                 <a class = "close-icon"  name = "action" value = "income" onclick = "deleteIncome(this), window.location.reload();"data-id = "{{ income.id }}">
                     <i class="red-text right">X</i>
