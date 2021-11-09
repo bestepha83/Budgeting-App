@@ -69,17 +69,23 @@ h1 {
     width: 80%;
 }
 
+hr {
+    width: 100%;
+}
+
 .accounts-section .account-cards {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: space-around;
+    margin: 2rem;
 }
 
 .accounts-section .account-card{
     display: flex;
     flex-direction: column;
-    height: 30rem;
+    height: 15rem;
     width: 50%;
     background-color:rgb(28, 28, 28);
 }
