@@ -81,7 +81,7 @@
                         <div class="col">
                             <span class="title">{{ income.category }}</span>
                         </div>
-                        <a class = "close-icon"  name = "action" value = "income" onclick = "deleteExpense(this), window.location.reload();" data-id = "{{ income.id }}">
+                        <a class = "close-icon"  name = "action" value = "income" onclick = "deleteIncome(this), window.location.reload();"data-id = "{{ income.id }}">
                             <i class="red-text right">X</i>
                         </a>
                     </div>
@@ -108,7 +108,7 @@
             <input name = "amount" id = "amount">
 
             <label for = "date">Date (mm/dd/yyyy)</label>
-            <input name = "date" id = "date">
+            <input type = "date" name = "date" id = "date">
 
             <label class="f1">Category<br>
                 <select class="Category" name="category" required><br>

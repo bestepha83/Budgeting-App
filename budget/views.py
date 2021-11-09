@@ -50,11 +50,14 @@ def transactions(request, project_slug):
                 category = category,
             ).save()
     elif request.method == 'DELETE':
-        if isinstance(json.loads(request.body), Expense):
+        # id = json.loads(request.body)['id']
+        # income = get_object_or_404(Income, id=id)
+        # income.delete()
+        if json.loads(request.body)[type] == 'expense':
             id = json.loads(request.body)['id']
             expense = get_object_or_404(Expense, id=id)
             expense.delete()
-        elif isinstance(json.loads(request.body), Income):
+        if json.loads(request.body)[type] == 'income':
             id = json.loads(request.body)['id']
             income = get_object_or_404(Income, id=id)
             income.delete()
