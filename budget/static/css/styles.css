@@ -42,7 +42,7 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: space-around;
+    align-items: center;
 }
 
 .left-nav .project-card {
@@ -53,6 +53,7 @@ h1 {
     width: 80%;
     height: 15rem;
     background-color:rgb(28, 28, 28);
+    margin: 2rem 0;
 }
 
 
@@ -83,8 +84,8 @@ h1 {
 .account-button {
     background-color: #9705d1;
     outline: none;
-    width: 1.25rem;
-    height: 0.75rem;
+    width: 3rem;
+    height: 2.3rem;
     color:rgb(255, 255, 255);
     transition: 0.3s ease;
 }
@@ -192,7 +193,7 @@ h1 {
     align-items: space-around;
     padding: 3rem;
     background-color: rgb(28, 28, 28);
-    width: 30rem;
+    width: 25rem;
     height: 20rem;
 }
 
@@ -201,4 +202,18 @@ h1 {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin: 2rem 0;
 }
+
+.section-expenses .expense-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section-expenses .expense-row h3 {
+    width: 20%;
+}
+
+

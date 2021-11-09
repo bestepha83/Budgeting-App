@@ -30,6 +30,12 @@
             <button class="modal-trigger account-button" id = "income-trigger" href = "#expenseModal" onClick = "incomeFunction()">+ Add Income</button>
             <button class="modal-trigger account-button" id = "expense-trigger" href = "#expenseModal" onClick = "expenseFunction()">+ Add Expense</button>
         </div>
+        <div class="expense-row">
+            <h3>Expense:</h3>
+            <h3>Amount:</h3>
+            <h3>Date:</h3>
+            <h3>Category:</h3>
+        </div>
         <ul class="expense-list">
             {% for expense in expense_list %}
             <li>
