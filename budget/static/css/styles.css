@@ -16,19 +16,6 @@ h1 {
     font-size: 3rem;
 }
 
-.button {
-    background-color: #9705d1;
-    outline: none;
-    padding: 0.75rem 1.25rem;
-    color:rgb(255, 255, 255);
-    transition: 0.3s ease;
-}
-
-.button:hover {
-    background-color: #8E05C2;
-    cursor: pointer;
-}
-
 /* Navigation */
 
 .nav-dec {
@@ -63,7 +50,6 @@ h1 {
 .accounts-section {
     display: flex;
     flex-direction: column;
-    height: 100%;
     width: 80%;
 }
 
@@ -80,6 +66,19 @@ h1 {
     height: 3rem;
     width: 25%;
     background-color:rgb(28, 28, 28);
+}
+
+.account-button {
+    background-color: #9705d1;
+    outline: none;
+    padding: 0.75rem 1.25rem;
+    color:rgb(255, 255, 255);
+    transition: 0.3s ease;
+}
+
+.account-button:hover {
+    background-color: #8E05C2;
+    cursor: pointer;
 }
 
 /* No Accounts */
