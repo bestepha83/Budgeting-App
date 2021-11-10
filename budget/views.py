@@ -1,10 +1,25 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import Project, Expense, Income
 from django.views.generic import CreateView
 from django.utils.text import slugify
 from .forms import ExpenseForm, IncomeForm
 import json
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages 
+from . forms import UserRegisterForm
+
+def register(request):
+    if request.method == "POST": 
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Your account was created succesfully')
+            return redirect('profile')
+        else: 
+            form = UserRegisterForm()
+    return render(request, 'budget/register.html', {'form': form})
 
 def accounts(request):
     project_list = Project.objects.all()
