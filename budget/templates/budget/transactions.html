@@ -16,11 +16,11 @@
         <div class = "stat-card">
             <h5>Budget Left</h6>
             {% if project.budget_left > 0 %}
-                <h1>${{ project.budget_left }}</h1>
+                <h2>${{ project.budget_left }}</h2>
             {% elif project.budget_left == 0 %}
-                <h1>${{ project.budget_left }}</h1>
+                <h2>${{ project.budget_left }}</h2>
             {% else %}
-                <h1>${{ project.budget_left }}</h1>
+                <h2>${{ project.budget_left }}</h2>
             {% endif %}
         </div>
     </section>

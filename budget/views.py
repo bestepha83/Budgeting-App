@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import Project, Expense, Income
@@ -13,7 +14,12 @@ def accounts(request):
 def profile(request, project_slug):
     project = get_object_or_404(Project, slug=project_slug)
     project_list = Project.objects.all()
-    return render(request, 'budget/profile.html', {'project': project, 'project_list': project_list, 'expense_list': project.expenses.all()})
+
+    return render(request, 'budget/profile.html', {
+        'project': project, 
+        'project_list': project_list, 
+        'expense_list': project.expenses.all(),
+    })
 
 def transactions(request, project_slug):
     project_list = Project.objects.all()
@@ -63,6 +69,37 @@ def transactions(request, project_slug):
             income.delete()
         return HttpResponse('')
     return render(request, 'budget/transactions.html', {'project': project, 'project_list': project_list, 'expense_list': project.expenses.all(), 'income_list': project.income.all()})
+
+def analytics(request, project_slug):
+    project = get_object_or_404(Project, slug=project_slug)
+    return render(request, 'budget/analytics.html', {
+        'project': project, 
+    })
+
+def expense_category_info(request):
+    expenses = Expense.objects.all()
+    finalrep ={}
+
+    def get_Category(addmoney_info):
+        return addmoney_info.category
+
+    category_list = list(set(map(get_Category,expenses)))
+
+    def get_expense_category_amount(category):
+        amount = 0 
+        filtered_by_category = expenses.filter(category = category) 
+        for expense in filtered_by_category:
+            amount+=expense.amount
+        return amount
+
+    for x in expenses:
+        for y in category_list:
+            finalrep[y]= get_expense_category_amount(y)
+
+    return JsonResponse({'expense_category_data': finalrep}, safe=False)
+    
+    
+
 
 class ProjectCreateView(CreateView):
     model = Project
