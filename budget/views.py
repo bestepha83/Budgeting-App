@@ -11,7 +11,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 def home(request):
-    return render(request, 'budget/home.html')
+    project_list = Project.objects.all()
+
+    return render(request, 'budget/home.html', {
+        'project_list': project_list, 
+    })
 
 def register(request):
     if request.method == "POST":
@@ -37,7 +41,7 @@ def profile(request, project_slug):
     project_list = Project.objects.all()
 
     return render(request, 'budget/profile.html', {
-        'project': project, 
+        'project': project,
         'project_list': project_list, 
         'expense_list': project.expenses.all(),
     })

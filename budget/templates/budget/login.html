@@ -1,5 +1,4 @@
 {% extends 'budget/base.html' %}
-{% load crispy_forms_tags %}
 {% load static %}
 
 {% block content %}
@@ -9,7 +8,7 @@
       {% csrf_token %}
       <fieldset class="form-group">
           <legend class="border-bottom mb-4" style="color: white;">Sign In Now</legend>
-          {{ form|crispy }}
+          {{ form }}
       </fieldset>
       <div class="form-group" id="signup-button">
           <button class="btn ">Sign In</button>
