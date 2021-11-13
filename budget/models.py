@@ -45,6 +45,9 @@ class Expense(models.Model):
     date = models.DateField(("Date"), default=datetime.date.today)
     type = 'expense'
     category = models.CharField( max_length = 20, choices = SELECT_CATEGORY_CHOICES , default ='Food')
+    
+    def __str__(self):
+        return self.category
 
     class Meta:
         ordering = ('-amount',)
@@ -56,6 +59,18 @@ class Income(models.Model):
     date = models.DateField(("Date"), default=datetime.date.today)
     type = 'income'
     category = models.CharField( max_length = 20, choices = SELECT_CATEGORY_CHOICES , default ='Food')
+    
+    def __str__(self):
+        return self.category
 
     class Meta:
         ordering = ('-amount',)
+
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
+    def __str__(self):
+        return self.name

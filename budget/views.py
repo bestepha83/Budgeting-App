@@ -9,6 +9,7 @@ import json
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+import datetime
 
 def home(request):
     project_list = Project.objects.all()
@@ -30,12 +31,12 @@ def register(request):
 
     return render(request, 'budget/register.html', {'form': form})
 
-# @login_required()
+@login_required()
 def accounts(request):
     project_list = Project.objects.all()
     return render(request, 'budget/accounts.html', {'project_list': project_list})
 
-# @login_required()
+@login_required()
 def profile(request, project_slug):
     project = get_object_or_404(Project, slug=project_slug)
     project_list = Project.objects.all()
@@ -46,7 +47,7 @@ def profile(request, project_slug):
         'expense_list': project.expenses.all(),
     })
 
-# @login_required()
+@login_required()
 def transactions(request, project_slug):
     project_list = Project.objects.all()
     project = get_object_or_404(Project, slug=project_slug)
@@ -101,7 +102,7 @@ def transactions(request, project_slug):
         'income_list': project.income.all()
         })
 
-# @login_required()
+@login_required()
 def analytics(request, project_slug):
     project = get_object_or_404(Project, slug=project_slug)
     project_list = Project.objects.all()
@@ -110,29 +111,29 @@ def analytics(request, project_slug):
         'project_list': project_list, 
     })
 
-def expense_category_info(request):
+def expense_category_info(request, project_slug):
     expenses = Expense.objects.all()
-    finalrep ={}
+    finalrep = {}
 
-    def get_Category(addmoney_info):
-        return addmoney_info.category
-
-    category_list = list(set(map(get_Category,expenses)))
+    def get_category(expense):
+        return expense.category
+    category_list = list(set(map(get_category, expenses)))
 
     def get_expense_category_amount(category):
-        amount = 0 
-        filtered_by_category = expenses.filter(category = category) 
-        for expense in filtered_by_category:
-            amount+=expense.amount
+        amount = 0
+        filtered_by_category = expenses.filter(category=category)
+
+        for item in filtered_by_category:
+            amount += item.amount
         return amount
 
     for x in expenses:
         for y in category_list:
-            finalrep[y]= get_expense_category_amount(y)
+            finalrep[y] = get_expense_category_amount(y)
 
-    return JsonResponse({'expense_category_data': finalrep}, safe=False)
-    
-# @login_required()  
+    return JsonResponse({'expense_category_info': finalrep}, safe=False)
+
+@login_required()  
 def stocks(request, project_slug):
     project = get_object_or_404(Project, slug=project_slug)
     project_list = Project.objects.all()    
@@ -150,7 +151,7 @@ def stocks(request, project_slug):
         'project_list': project_list,
         })
 
-# @login_required()
+@login_required()
 def ticker(request, tid, project_slug):
     project = get_object_or_404(Project, slug=project_slug)
     context = {}
