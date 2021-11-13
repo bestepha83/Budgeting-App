@@ -9,7 +9,6 @@ import json
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-import datetime
 
 def home(request):
     project_list = Project.objects.all()
