@@ -1,16 +1,37 @@
-from django.http import JsonResponse
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import redirect, render, get_object_or_404
+from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 from .models import Project, Expense, Income
 from django.views.generic import CreateView
 from django.utils.text import slugify
-from .forms import ExpenseForm, IncomeForm
+from .forms import ExpenseForm, IncomeForm, TickerForm, UserRegisterForm
+from .tiingo import get_meta_data, get_price_data
 import json
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
+def home(request):
+    return render(request, 'budget/home.html')
+
+def register(request):
+    if request.method == "POST":
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Hi {username}, your account was created successfully')
+            return redirect('home')
+    else:
+        form = UserRegisterForm()
+
+    return render(request, 'budget/register.html', {'form': form})
+
+# @login_required()
 def accounts(request):
     project_list = Project.objects.all()
     return render(request, 'budget/accounts.html', {'project_list': project_list})
 
+# @login_required()
 def profile(request, project_slug):
     project = get_object_or_404(Project, slug=project_slug)
     project_list = Project.objects.all()
@@ -21,6 +42,7 @@ def profile(request, project_slug):
         'expense_list': project.expenses.all(),
     })
 
+# @login_required()
 def transactions(request, project_slug):
     project_list = Project.objects.all()
     project = get_object_or_404(Project, slug=project_slug)
@@ -68,12 +90,20 @@ def transactions(request, project_slug):
             income = get_object_or_404(Income, id=id)
             income.delete()
         return HttpResponse('')
-    return render(request, 'budget/transactions.html', {'project': project, 'project_list': project_list, 'expense_list': project.expenses.all(), 'income_list': project.income.all()})
+    return render(request, 'budget/transactions.html', {
+        'project': project, 
+        'project_list': project_list, 
+        'expense_list': project.expenses.all(), 
+        'income_list': project.income.all()
+        })
 
+# @login_required()
 def analytics(request, project_slug):
     project = get_object_or_404(Project, slug=project_slug)
+    project_list = Project.objects.all()
     return render(request, 'budget/analytics.html', {
-        'project': project, 
+        'project': project,
+        'project_list': project_list, 
     })
 
 def expense_category_info(request):
@@ -98,7 +128,33 @@ def expense_category_info(request):
 
     return JsonResponse({'expense_category_data': finalrep}, safe=False)
     
+# @login_required()  
+def stocks(request, project_slug):
+    project = get_object_or_404(Project, slug=project_slug)
+    project_list = Project.objects.all()    
+    if request.method == 'POST':
+        form = TickerForm(request.POST)
+        if form.is_valid():
+            ticker = request.POST['ticker']
+            return HttpResponseRedirect(f'stocks/{ticker}')
+    else:
+        form = TickerForm()
     
+    return render(request, 'budget/stocks.html', {
+        'form': form,
+        'project': project,
+        'project_list': project_list,
+        })
+
+# @login_required()
+def ticker(request, tid, project_slug):
+    project = get_object_or_404(Project, slug=project_slug)
+    context = {}
+    context['ticker'] = tid
+    context['meta'] = get_meta_data(tid)
+    context['price'] = get_price_data(tid)
+    return render(request, 'budget/ticker.html', context)
+
 
 
 class ProjectCreateView(CreateView):

@@ -6,6 +6,7 @@
     <a href="{% url 'profile' project.slug %}">Profile</a>
     <a href="{% url 'transactions' project.slug %}">Transactions</a>
     <a href="{% url 'analytics' project.slug %}">Analytics</a>
+    <a href="{% url 'stocks' project.slug %}">Stocks</a>
 </nav>
 <div class = 'left-nav'>
     <h3>My Accounts</h3>
@@ -17,7 +18,7 @@
                 <a href="{% url 'profile' project.slug %}" class="account-button">Check</a>                 
             </div>
         {% endfor %}
-        <a href="./add" class="account-button">
+        <a href="../add" class="account-button">
             <span>Add Accounts</span>
         </a>
     </div>
