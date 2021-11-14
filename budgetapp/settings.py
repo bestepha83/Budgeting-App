@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6c372$6$4mpjwe_tg)c@*at2%e3b+d_se-f-u*nmua!b&sp&x8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["bestepha-budget-app.herokuapp.com", "localhost"]
 
