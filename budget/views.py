@@ -198,14 +198,14 @@ def stocks(request, project_slug):
         'project_list': project_list,
         })
 
-@login_required()
-def ticker(request, tid, project_slug):
-    project = get_object_or_404(Project, slug=project_slug)
-    context = {}
-    context['ticker'] = tid
-    context['meta'] = get_meta_data(tid)
-    context['price'] = get_price_data(tid)
-    return render(request, 'budget/ticker.html', context)
+# @login_required()
+# def ticker(request, tid, project_slug):
+#     project = get_object_or_404(Project, slug=project_slug)
+#     context = {}
+#     context['ticker'] = tid
+#     context['meta'] = get_meta_data(tid)
+#     context['price'] = get_price_data(tid)
+#     return render(request, 'budget/ticker.html', context)
 
 
 
