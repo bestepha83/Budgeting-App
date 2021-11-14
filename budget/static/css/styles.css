@@ -230,4 +230,35 @@ hr {
     width: 20%;
 }
 
+/* Analytics */
 
+.analytics-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    position: relative;
+    left: 20%;
+}
+.analytics-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.analytics-row .container {
+    width: 100%;
+}
+
+
+/* Stocks */
+
+.stocks-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    position: relative;
+    left: 20%;
+}
