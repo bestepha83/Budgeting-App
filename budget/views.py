@@ -3,8 +3,8 @@ from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 from .models import Project, Expense, Income
 from django.views.generic import CreateView
 from django.utils.text import slugify
-from .forms import ExpenseForm, IncomeForm, TickerForm, UserRegisterForm
-from .tiingo import get_meta_data, get_price_data
+from .forms import ExpenseForm, IncomeForm, UserRegisterForm
+# from .tiingo import get_meta_data, get_price_data
 import json
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
