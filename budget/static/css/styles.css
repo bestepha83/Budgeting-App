@@ -72,7 +72,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 40%;
 }
 
 .home-content {
@@ -80,7 +80,15 @@ h1 {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 50%;
+    width: 60%;
+    height: 50%;
+}
+
+.home-content h1 {
+    width: 80%;
+}
+.home-content p {
+    width: 80%;
 }
 
 .home-form {
