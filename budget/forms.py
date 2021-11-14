@@ -15,8 +15,8 @@ class IncomeForm(forms.Form):
     date = forms.DateField()
     category = forms.CharField()
 
-# class TickerForm(forms.Form):
-#     ticker = forms.CharField(label='Ticker', max_length=5)
+class TickerForm(forms.Form):
+    ticker = forms.CharField(label='Ticker', max_length=5)
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()

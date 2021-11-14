@@ -3,8 +3,8 @@ from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 from .models import Project, Expense, Income
 from django.views.generic import CreateView
 from django.utils.text import slugify
-from .forms import ExpenseForm, IncomeForm, UserRegisterForm
-# from .tiingo import get_meta_data, get_price_data
+from .forms import ExpenseForm, IncomeForm, TickerForm, UserRegisterForm
+from .tiingo import get_meta_data, get_price_data
 import json
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -180,32 +180,32 @@ def expense_time_info(request, project_slug):
 
     return JsonResponse({'expense_time_info': finalrep}, safe=False)
 
-# @login_required()  
-# def stocks(request, project_slug):
-#     project = get_object_or_404(Project, slug=project_slug)
-#     project_list = Project.objects.all()    
-#     if request.method == 'POST':
-#         form = TickerForm(request.POST)
-#         if form.is_valid():
-#             ticker = request.POST['ticker']
-#             return HttpResponseRedirect(f'stocks/{ticker}')
-#     else:
-#         form = TickerForm()
+@login_required()  
+def stocks(request, project_slug):
+    project = get_object_or_404(Project, slug=project_slug)
+    project_list = Project.objects.all()    
+    if request.method == 'POST':
+        form = TickerForm(request.POST)
+        if form.is_valid():
+            ticker = request.POST['ticker']
+            return HttpResponseRedirect(f'stocks/{ticker}')
+    else:
+        form = TickerForm()
     
-#     return render(request, 'budget/stocks.html', {
-#         'form': form,
-#         'project': project,
-#         'project_list': project_list,
-#         })
+    return render(request, 'budget/stocks.html', {
+        'form': form,
+        'project': project,
+        'project_list': project_list,
+        })
 
-# @login_required()
-# def ticker(request, tid, project_slug):
-#     project = get_object_or_404(Project, slug=project_slug)
-#     context = {}
-#     context['ticker'] = tid
-#     context['meta'] = get_meta_data(tid)
-#     context['price'] = get_price_data(tid)
-#     return render(request, 'budget/ticker.html', context)
+@login_required()
+def ticker(request, tid, project_slug):
+    project = get_object_or_404(Project, slug=project_slug)
+    context = {}
+    context['ticker'] = tid
+    context['meta'] = get_meta_data(tid)
+    context['price'] = get_price_data(tid)
+    return render(request, 'budget/ticker.html', context)
 
 
 

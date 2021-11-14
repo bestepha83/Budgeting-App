@@ -20,6 +20,6 @@ urlpatterns = [
           name="expense_time_info"),
      path('<slug:project_slug>/analytics', views.analytics,
           name="analytics"),
-     # path('<slug:project_slug>/stocks', views.stocks, name='stocks'),     
-     # path('<slug:project_slug>/stocks/<str:tid>', views.ticker, name='ticker'),
+     path('<slug:project_slug>/stocks', views.stocks, name='stocks'),     
+     path('<slug:project_slug>/stocks/<str:tid>', views.ticker, name='ticker'),
 ]
