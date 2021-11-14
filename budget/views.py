@@ -180,23 +180,23 @@ def expense_time_info(request, project_slug):
 
     return JsonResponse({'expense_time_info': finalrep}, safe=False)
 
-@login_required()  
-def stocks(request, project_slug):
-    project = get_object_or_404(Project, slug=project_slug)
-    project_list = Project.objects.all()    
-    if request.method == 'POST':
-        form = TickerForm(request.POST)
-        if form.is_valid():
-            ticker = request.POST['ticker']
-            return HttpResponseRedirect(f'stocks/{ticker}')
-    else:
-        form = TickerForm()
+# @login_required()  
+# def stocks(request, project_slug):
+#     project = get_object_or_404(Project, slug=project_slug)
+#     project_list = Project.objects.all()    
+#     if request.method == 'POST':
+#         form = TickerForm(request.POST)
+#         if form.is_valid():
+#             ticker = request.POST['ticker']
+#             return HttpResponseRedirect(f'stocks/{ticker}')
+#     else:
+#         form = TickerForm()
     
-    return render(request, 'budget/stocks.html', {
-        'form': form,
-        'project': project,
-        'project_list': project_list,
-        })
+#     return render(request, 'budget/stocks.html', {
+#         'form': form,
+#         'project': project,
+#         'project_list': project_list,
+#         })
 
 # @login_required()
 # def ticker(request, tid, project_slug):
