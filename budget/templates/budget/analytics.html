@@ -133,12 +133,12 @@
         .then((res) => res.json())
         .then((results) => {
         console.log("results", results);
-        const category_data = results.total_spent_info;
+        const spent_data = results.total_spent_info;
         const [labels, data] = [
-            Object.keys(category_data),
-            Object.values(category_data),
+            Object.keys(spent_data),
+            Object.values(spent_data),
         ];
-
+        
         renderBarChart(data, labels);
         });
     };
@@ -150,11 +150,11 @@
         .then((results) => {
         console.log("results", results);
         const category_data = results.expense_category_info;
+        console.log(category_data)
         const [labels, data] = [
             Object.keys(category_data),
             Object.values(category_data),
         ];
-
         renderPieChart(data, labels);
         });
     };

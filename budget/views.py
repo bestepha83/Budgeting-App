@@ -81,17 +81,17 @@ def transactions(request, project_slug):
                 category = category,
             ).save()
     elif request.method == 'DELETE':
-        # id = json.loads(request.body)['id']
-        # income = get_object_or_404(Income, id=id)
-        # income.delete()
-        if json.loads(request.body)[type] == 'expense':
-            id = json.loads(request.body)['id']
-            expense = get_object_or_404(Expense, id=id)
-            expense.delete()
-        if json.loads(request.body)[type] == 'income':
-            id = json.loads(request.body)['id']
-            income = get_object_or_404(Income, id=id)
-            income.delete()
+        id = json.loads(request.body)['id']
+        expense = get_object_or_404(Expense, id=id)
+        expense.delete()
+        # if json.loads(request.body)[type] == 'expense':
+        #     id = json.loads(request.body)['id']
+        #     expense = get_object_or_404(Expense, id=id)
+        #     expense.delete()
+        # if json.loads(request.body)[type] == 'income':
+        #     id = json.loads(request.body)['id']
+        #     income = get_object_or_404(Income, id=id)
+        #     income.delete()
         return HttpResponse('')
     return render(request, 'budget/transactions.html', {
         'project': project, 
@@ -110,30 +110,33 @@ def analytics(request, project_slug):
     })
 
 def total_spent_info(request, project_slug):
-    project = Project.objects.all()
+    project = get_object_or_404(Project, slug=project_slug)
     expenses = Expense.objects.all()
+    income = Income.objects.all()
     finalrep = {}
 
-    def get_budget(budget):
+    def get_initial_budget(project):
         return project.budget
 
-    def get_category(expense):
-        return expense.category
-    
-    category_list = list(set(map(get_category, expenses)))
-
-    def get_expense_category_amount(category):
+    def get_expenses(expense):
         amount = 0
-        filtered_by_category = expenses.filter(category=category)
-
-        for item in filtered_by_category:
-            amount += item.amount
+        for expense in expenses:
+            amount += expense.amount
         return amount
+    
+    def get_income(income):
+        amount = 0
+        for check in income:
+            amount += check.amount
+        return amount
+    
+    def get_current_budget(project):
+        return project.budget - get_expenses(expenses) + get_income(income)
 
-    for x in expenses:
-        for y in category_list:
-            finalrep[y] = get_expense_category_amount(y)
-
+    finalrep["Initial"] = get_initial_budget(project)
+    finalrep["Current"] = get_current_budget(project)
+    finalrep["Expenses"] = get_expenses(expenses)
+    finalrep["Income"] = get_income(income)
     return JsonResponse({'total_spent_info': finalrep}, safe=False)
 
 def expense_category_info(request, project_slug):
