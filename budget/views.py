@@ -6,7 +6,6 @@ from django.utils.text import slugify
 from .forms import ExpenseForm, IncomeForm, TickerForm, UserRegisterForm
 from .tiingo import get_meta_data, get_price_data
 import json
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 def home(request):

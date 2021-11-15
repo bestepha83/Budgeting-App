@@ -10,8 +10,13 @@
             <h1>Fiancial Management App</h1>
             <p>Stay organized and track your finances</p>
             <form id="authstyle" class = "home-form">
+                {% if user.is_authenticated %}
+                <a href="{% url 'list' %}" class="account-button" type="submit" id="header-links">Accounts</a>
+                <a href="{% url 'logout' %}" class="account-button" type="submit" id="header-links">Logout</a>
+                {% else %}
                 <a href="{% url 'register' %}" class="account-button" type="submit" id="header-links"> Create Account </a>
                 <a href="{% url 'login' %}" class="account-button" type="submit" id="header-links">Log In</a>
+                {% endif %}
             </form>            
         </div>
     </section>
