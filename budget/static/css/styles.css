@@ -20,6 +20,7 @@ h1 {
 
 .nav-dec {
     display: flex;
+    justify-content: flex-end;
     background-color:rgb(28, 28, 28);
 }
 
@@ -75,6 +76,10 @@ h1 {
     width: 40%;
 }
 
+.home-image-container img {
+    width: 80%;
+}
+
 .home-content {
     display: flex;
     flex-direction: column;
@@ -89,6 +94,7 @@ h1 {
 }
 .home-content p {
     width: 80%;
+    font-size: 2rem;
 }
 
 .home-form {
@@ -104,7 +110,14 @@ h1 {
 
 .accounts-section {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.accounts-content {
+    display: flex;
+    flex-direction : column;
     justify-content: center;
     align-items: center;
     width: 80%;
@@ -123,11 +136,13 @@ hr {
     margin: 2rem;
 }
 
-.accounts-section .account-card{
+.account-card {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 15rem;
-    width: 50%;
+    width: 20rem;
     background-color:rgb(28, 28, 28);
 }
 

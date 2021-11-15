@@ -3,25 +3,28 @@
 
 
 <div class = "accounts-section">
+    <div class = "accounts-content">
+        <h1>My Accounts</h1>
+        <hr>
 
-    <h1>My Accounts</h1>
-    <hr>
-
-    <div class = "account-cards">
-        {% for project in project_list %}
-            <div class="account-card">
-                <h3>{{ project.name }}</h3>   
-                <a href="{% url 'profile' project.slug %}" class="account-button">Check</a>                 
+        <div class = "account-cards">
+            {% for project in project_list %}
+                <div class="account-card">
+                    <h3>{{ project.name }}</h3>   
+                    <a href="{% url 'profile' project.slug %}" class="account-button">Check</a>                 
+                </div>
+            {% empty %}
+            <div class = "noproject-wrapper">
+                <h3>Sorry, you don't have any accounts, yet.</h3>
             </div>
-        {% empty %}
-        <div class = "noproject-wrapper">
-            <h3>Sorry, you don't have any accounts, yet.</h3>
-        </div>
-        {% endfor %}
-        <a href="./add" class="account-button">
-            <span class='account-button'>Add Accounts</span>
-        </a>
+            {% endfor %}
+            <a href="./add" class="account-button">
+                <span class='account-button'>Add Accounts</span>
+            </a>
+        </div>        
     </div>
+
+
 </div>
 
 {% endblock %}
