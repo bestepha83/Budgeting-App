@@ -30,7 +30,7 @@ h1 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 10%;
+    width: 15%;
     margin-left: 2rem;
 }
 
@@ -321,6 +321,7 @@ hr {
 }
 .analytics-row {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     width: 100%;
@@ -328,6 +329,7 @@ hr {
 
 .analytics-row .container {
     width: 100%;
+    margin: 2rem;
 }
 
 
