@@ -6,7 +6,7 @@
 
 html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color:rgb(28, 28, 28);
+    background-color: #262626;
 }
 body {
     color: rgb(249, 249, 249);
@@ -19,7 +19,7 @@ h1 {
 /* Navigation */
 
 .nav-dec {
-    background-color:rgb(40, 40, 40);
+    background-color: #262626;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,7 +76,7 @@ h1 {
     align-items: space-around;
     width: 80%;
     height: 15rem;
-    background-color:rgb(40, 40, 40);
+    background-color:#262626;
     margin: 2rem 0;
     padding: 2rem;
 }
@@ -166,7 +166,9 @@ hr {
     align-items: center;
     height: 15rem;
     width: 20rem;
-    background-color:rgb(40, 40, 40);
+    background-color:#262626;
+
+    box-shadow:  -12px -12px 12px 0 rgba(58, 58, 58, 0.3),12px 12px 12px 0 rgba(0,0,0,.2);
 }
 
 .account-button {
@@ -230,7 +232,8 @@ hr {
     justify-content: center;
     align-items: space-around;
     padding: 1rem;
-    background-color: rgb(40, 40, 40);
+    background-color: #262626;
+
     width: 20rem;
     height: 15rem;
 }
@@ -247,7 +250,8 @@ hr {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color:rgb(40, 40, 40);
+    background-color:#262626;
+
     height: 3rem;
     margin: 0.75rem 0;
     padding: 2rem 0;
@@ -285,7 +289,8 @@ hr {
     justify-content: center;
     align-items: space-around;
     padding: 3rem;
-    background-color: rgb(40, 40, 40);
+    background-color: #262626;
+
     width: 20rem;
     height: 15rem;
 }
@@ -350,4 +355,8 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.stocks-form input {
+    width: 80%;
 }
