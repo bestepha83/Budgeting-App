@@ -334,14 +334,13 @@ hr {
 }
 .analytics-row {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
 }
 
 .analytics-row .container {
-    width: 100%;
     margin: 2rem;
 }
 
