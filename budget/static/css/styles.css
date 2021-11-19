@@ -78,6 +78,7 @@ h1 {
     height: 15rem;
     background-color:#262626;
     box-shadow:  -12px -12px 12px 0 rgba(58, 58, 58, 0.3),12px 12px 12px 0 rgba(0,0,0,.2);
+    border-radius: 3px;
     margin: 2rem 0;
     padding: 2rem;
 }
@@ -169,13 +170,14 @@ hr {
     width: 20rem;
     background-color:#262626;
     box-shadow:  -12px -12px 12px 0 rgba(58, 58, 58, 0.3),12px 12px 12px 0 rgba(0,0,0,.2);
+    border-radius: 3px;
 }
 
 .account-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #9705d1;
+    background-color: rgba(153, 102, 255, 0.8);
     outline: none;
     width: 8rem;
     height: 3rem;
@@ -186,7 +188,7 @@ hr {
 }
 
 .account-button:hover {
-    background-color: #8E05C2;
+    background-color: rgba(153, 102, 255, 1);
     cursor: pointer;
 }
 
@@ -223,7 +225,7 @@ hr {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 80%;
+    width: 100%;
 }
 
 .profile-section .stat-card{
@@ -234,12 +236,16 @@ hr {
     padding: 1rem;
     background-color: #262626;
     box-shadow:  -12px -12px 12px 0 rgba(58, 58, 58, 0.3),12px 12px 12px 0 rgba(0,0,0,.2);
+    border-radius: 3px;
     width: 20rem;
     height: 15rem;
 }
 
 .section-expenses {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .section-expenses .expense-list {
@@ -252,8 +258,9 @@ hr {
     align-items: center;
     background-color:#262626;
     box-shadow:  -12px -12px 12px 0 rgba(58, 58, 58, 0.3),12px 12px 12px 0 rgba(0,0,0,.2);
+    border-radius: 3px;
     height: 3rem;
-    margin: 0.75rem 0;
+    margin: 1rem 0;
     padding: 2rem 0;
 }
 
@@ -291,6 +298,7 @@ hr {
     padding: 3rem;
     background-color: #262626;
     box-shadow:  -12px -12px 12px 0 rgba(58, 58, 58, 0.3),12px 12px 12px 0 rgba(0,0,0,.2);
+    border-radius: 3px;
     width: 20rem;
     height: 15rem;
 }
