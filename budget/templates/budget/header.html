@@ -5,7 +5,6 @@
 
 <nav class = 'nav-dec'>
     <a href="{% url 'list' %}" class = "logo">
-        <img src="{% static 'images/logo.png' %}"/>
         <p>Finance Guru</p>
     </a>
     <div class = "nav-links">
@@ -26,10 +25,10 @@
                 <a href="{% url 'profile' project.slug %}" class="account-button">Check</a>                 
             </div>
         {% endfor %}
-        <a href="../add" class="account-button">
-            <span>Add Accounts</span>
-        </a>
     </div>
+    <a href="../add" class="account-button">
+        <span>Add Accounts</span>
+    </a>
 </div>
 
 
