@@ -18,6 +18,12 @@ h1 {
 
 input {
     color: white;
+    transition: 0.2s ease;
+}
+
+input:focus {
+    background-color: transparent;
+    border-bottom: 2px solid rgba(153, 102, 255, 0.8);
 }
 
 /* Navigation */
@@ -313,6 +319,16 @@ hr {
     height: 15rem;
 }
 
+.modal-content {
+    color: white;
+    background-color: #262626;
+}
+
+.modal option {
+    color:rgba(153, 102, 255, 0.8);
+    background-color: #262626;
+}
+
 .section-expenses .button-row {
     width: 60%;
     display: flex;
@@ -354,7 +370,7 @@ hr {
 }
 
 .analytics-row .container {
-    margin: 2rem;
+    margin-bottom: 3rem;
 }
 
 
@@ -368,6 +384,7 @@ hr {
     width: 80%;
     position: relative;
     left: 20%;
+    margin-bottom: 2rem;
 }
 
 .stocks-form {
@@ -375,13 +392,12 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
 }
 
 .stocks-form input {
     width: 100%;
 }
 
-.stocks-content {
+.stock-content {
     width: 80%;
 }
