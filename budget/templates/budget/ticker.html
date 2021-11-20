@@ -12,16 +12,18 @@
         <input type="submit" value="Submit" class = "account-button">
     </form>
 </div>
-<div class="container text-center">
-    <h1>{{ meta.name|safe }} ({{ ticker|safe }})</h1>
-    <p><bold>Description:</bold> {{ meta.description|safe }}</p>
-    <h4>Today's price data for {{ ticker|safe }}</h4>
-    <table class="table text-center">
-        <tr><td>Open:</td><td>${{ price.open|safe }}</td></tr>
-        <tr><td>High:</td><td>${{ price.high|safe }}</td></tr>
-        <tr><td>Low:</td><td>${{ price.low|safe }}</td></tr>
-        <tr><td>Close:</td><td>${{ price.close|safe }}</td></tr>
-    </table>
+<div class="stocks-section">
+    <div class = "stock-content">
+        <h1>{{ meta.name|safe }} ({{ ticker|safe }})</h1>
+        <p><bold>Description:</bold> {{ meta.description|safe }}</p>
+        <h4>Today's price data for {{ ticker|safe }}</h4>
+        <table class="table text-center">
+            <tr><td>Open:</td><td>${{ price.open|safe }}</td></tr>
+            <tr><td>High:</td><td>${{ price.high|safe }}</td></tr>
+            <tr><td>Low:</td><td>${{ price.low|safe }}</td></tr>
+            <tr><td>Close:</td><td>${{ price.close|safe }}</td></tr>
+        </table>        
+    </div>
 </div>
 
 {% endblock %}

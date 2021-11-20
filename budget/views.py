@@ -160,27 +160,7 @@ def expense_category_info(request, project_slug):
 
     return JsonResponse({'expense_category_info': finalrep}, safe=False)
 
-# def expense_time_info(request, project_slug):
-#     expenses = Expense.objects.all()
-#     finalrep = {}
 
-#     def get_category(expense):
-#         return expense.category
-#     category_list = list(set(map(get_category, expenses)))
-
-#     def get_expense_category_amount(category):
-#         amount = 0
-#         filtered_by_category = expenses.filter(category=category)
-
-#         for item in filtered_by_category:
-#             amount += item.amount
-#         return amount
-
-#     for x in expenses:
-#         for y in category_list:
-#             finalrep[y] = get_expense_category_amount(y)
-
-#     return JsonResponse({'expense_time_info': finalrep}, safe=False)
 def expense_time_info(request, project_slug):
     expenses = Expense.objects.all()
     finalrep = {}

@@ -375,8 +375,13 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 .stocks-form input {
+    width: 100%;
+}
+
+.stocks-content {
     width: 80%;
 }
