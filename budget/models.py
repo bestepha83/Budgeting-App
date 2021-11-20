@@ -29,7 +29,6 @@ class Project(models.Model):
             total_expense_amount += expense.amount
         for income in income_list:
             total_income_amount += income.amount
-        print(total_income_amount)
         return self.budget - total_expense_amount + total_income_amount
     
     def total_transactions(self):
