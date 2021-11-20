@@ -4,10 +4,10 @@
 
 
 <nav class = 'nav-dec'>
-    <div class = "logo">
+    <a href="{% url 'list' %}" class = "logo">
         <img src="{% static 'images/logo.png' %}"/>
         <p>Finance Guru</p>
-    </div>
+    </a>
     <div class = "nav-links">
         <a href="{% url 'profile' project.slug %}">Profile</a>
         <a href="{% url 'transactions' project.slug %}">Transactions</a>

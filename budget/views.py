@@ -188,7 +188,8 @@ def expense_time_info(request, project_slug):
     def get_date(expense):
         return str(expense.date)
     date_list = list(set(map(get_date, expenses)))
-
+    date_list.sort()
+    
     def get_expense_date_amount(date):
         amount = 0
         filtered_by_date = expenses.filter(date=date)
