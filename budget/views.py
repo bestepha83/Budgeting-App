@@ -225,10 +225,21 @@ def stocks(request, project_slug):
 @login_required()
 def ticker(request, tid, project_slug):
     project = get_object_or_404(Project, slug=project_slug)
+    project_list = Project.objects.all()    
+    if request.method == 'POST':
+        form = TickerForm(request.POST)
+        if form.is_valid():
+            ticker = request.POST['ticker']
+            return HttpResponseRedirect(f'{ticker}')
+    else:
+        form = TickerForm()
     context = {}
     context['ticker'] = tid
     context['meta'] = get_meta_data(tid)
     context['price'] = get_price_data(tid)
+    context['form'] = form
+    context['project'] = project
+    context['project_list'] = project_list
     return render(request, 'budget/ticker.html', context)
 
 

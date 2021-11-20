@@ -1,9 +1,20 @@
 {% extends "budget/base.html" %}
 {% block content %}
 
+{% include "budget/header.html" %}
+
+
+<div class="stocks-section">
+    <h1>Enter a stock symbol</h1>
+    <form method="POST" class = "stocks-form">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" class = "account-button">
+    </form>
+</div>
 <div class="container text-center">
     <h1>{{ meta.name|safe }} ({{ ticker|safe }})</h1>
-    <p>Description: {{ meta.description|safe }}</p>
+    <p><bold>Description:</bold> {{ meta.description|safe }}</p>
     <h4>Today's price data for {{ ticker|safe }}</h4>
     <table class="table text-center">
         <tr><td>Open:</td><td>${{ price.open|safe }}</td></tr>
