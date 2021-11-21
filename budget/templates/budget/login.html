@@ -4,19 +4,23 @@
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <div class="login-section">
-        <form action="" method="POST">
-            {% csrf_token %}
-            <fieldset class="login-form">
-                <legend class="border-bottom mb-4" style="color: white;">Sign In Now</legend>
-                {{ form }}
-            </fieldset>
-            <div class='login-form' id="signup-button">
-                <button class="account-button">Sign In</button>
-            </div>
-            <div class="login-form">
-                <small class="text-muted ml-3" >Don't have an account yet? <a href="{% url 'register' %}">Sign Up Today</a></small>
-            </div>
-        </form>
+        <h1>Sign In Now</h1>
+        <div class="login-content">
+            <img src="{% static 'images/banner.png' %}"/>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <fieldset class="login-form">
+                    {{ form }}
+                </fieldset>
+                <div class='login-form' id="signup-button">
+                    <button class="account-button">Sign In</button>
+                </div>
+                <div class="login-form">
+                    <small class="text-muted ml-3" >Don't have an account yet? <a href="{% url 'register' %}">Sign Up Today</a></small>
+                </div>
+            </form>            
+        </div>
+
     </div>
 
 {% endblock %}

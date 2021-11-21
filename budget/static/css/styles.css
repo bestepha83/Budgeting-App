@@ -149,13 +149,60 @@ input:focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 100%;
 }
 
 .login-form {
-    margin: 2rem 0;
+    margin: 1rem 0;
 }
 
+.login-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login-content img {
+    width: 40%;
+}
+
+.login-content form {
+    width: 40%;
+}
+
+/* Register */
+
+.register-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.register-form {
+    margin: 1rem 0;
+}
+
+.register-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.register-content img {
+    width: 40%;
+}
+
+.register-content form {
+    outline: none;
+    border: none;
+    width: 40%;
+}
+
+.register-content button {
+    margin: 1rem 0;
+}
 
 
 /* Add Accounts */
@@ -165,7 +212,7 @@ input:focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 100%;
 }
 
 .add-content {
@@ -182,7 +229,7 @@ input:focus {
     width: 40%;
 }
 
-.add-content input {
+.add-content button {
     margin: 1rem 0;
 }
 
