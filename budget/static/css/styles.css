@@ -142,6 +142,52 @@ input:focus {
 }
 
 
+/* Login */
+
+.login-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+.login-form {
+    margin: 2rem 0;
+}
+
+
+
+/* Add Accounts */
+
+.add-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.add-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-content img {
+    width: 40%;
+}
+
+.add-content form {
+    width: 40%;
+}
+
+.add-content input {
+    margin: 1rem 0;
+}
+
+
+
 
 /* Accounts */
 

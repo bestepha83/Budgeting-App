@@ -2,12 +2,17 @@
 {% load static %}
 {% block content %}
 
-<div class = 'container'>
-    <form action = "" method = "POST">
-        {% csrf_token %}
-        {{ form }}
-        <button type = "submit" class = "account-button">Create Account</button>
-    </form>
+<div class = 'add-section'>
+    <h1>Add an Account</h1>
+    <div class = "add-content">
+        <img src="{% static 'images/banner.png' %}"/>
+        <form action = "" method = "POST">
+            {% csrf_token %}
+            {{ form }}
+            <button type = "submit" class = "account-button">Create Account</button>
+        </form>        
+    </div>
+
 </div>
 
 {% endblock %}
