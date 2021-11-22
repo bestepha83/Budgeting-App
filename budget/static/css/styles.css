@@ -150,6 +150,7 @@ input:focus {
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-bottom: 2rem;
 }
 
 .login-form {
@@ -178,6 +179,7 @@ input:focus {
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-bottom: 2rem;
 }
 
 .register-form {
