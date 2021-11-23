@@ -22,8 +22,14 @@ input {
 }
 
 input:focus {
-    background-color: transparent;
     border-bottom: 2px solid rgba(153, 102, 255, 0.8);
+}
+
+input:-webkit-autofill {
+    background: transparent;
+  }
+input:autofill {
+    background: transparent;
 }
 
 /* Navigation */
@@ -42,6 +48,7 @@ input:focus {
     align-items: center;
     width: 15%;
     margin-left: 2rem;
+    z-index: 100;
 }
 
 .logo p {
@@ -49,9 +56,15 @@ input:focus {
     font-family: 'Archivo', sans-serif;
 }
 
+.burger {
+    display: none;
+}
+
 .nav-links {
     display: flex;
     justify-content: center;
+    align-items: center;
+    z-index: 99;
 }
 
 .nav-dec a {
@@ -476,6 +489,7 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     width: 80%;
     position: relative;
     left: 20%;
@@ -496,3 +510,40 @@ hr {
 .stock-content {
     width: 80%;
 }
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .burger {
+        display: block;
+    }
+    .line1, .line2, .line3 {
+        height: 5px;
+        width: 2rem;
+        border-radius: 2px;
+        background-color:rgb(255, 255, 255);
+    }
+
+    .nav-links {
+        position: absolute;
+        right: -100%;
+        height: 50vh;
+        width: 100%;
+        flex-direction: column;
+        background-color:rgba(58, 58, 58, 0.7);
+    }
+
+    .left-nav {
+        display: none;
+    }
+    .profile-section, .transactions-section, .analytics-section, .stocks-section {
+        left: 0%;
+        width: 100%;
+    }
+
+    .profile-stats, .analytics-row {
+        flex-direction: column;
+    }
+  }

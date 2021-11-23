@@ -110,8 +110,8 @@ def analytics(request, project_slug):
 
 def total_spent_info(request, project_slug):
     project = get_object_or_404(Project, slug=project_slug)
-    expenses = Expense.objects.all()
-    income = Income.objects.all()
+    expenses = project.expenses.all()
+    income = project.income.all()
     finalrep = {}
 
     def get_initial_budget(project):
@@ -139,7 +139,8 @@ def total_spent_info(request, project_slug):
     return JsonResponse({'total_spent_info': finalrep}, safe=False)
 
 def expense_category_info(request, project_slug):
-    expenses = Expense.objects.all()
+    project = get_object_or_404(Project, slug=project_slug)
+    expenses = project.expenses.all()
     finalrep = {}
 
     def get_category(expense):
@@ -162,7 +163,8 @@ def expense_category_info(request, project_slug):
 
 
 def expense_time_info(request, project_slug):
-    expenses = Expense.objects.all()
+    project = get_object_or_404(Project, slug=project_slug)
+    expenses = project.expenses.all()
     finalrep = {}
 
     def get_date(expense):
