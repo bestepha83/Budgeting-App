@@ -512,27 +512,33 @@ hr {
 }
 
 
-
+.nav-active {
+    transform: translateX(0%);
+}
 
 
 @media only screen and (max-width: 600px) {
     .burger {
         display: block;
+        cursor: pointer;
     }
     .line1, .line2, .line3 {
         height: 5px;
         width: 2rem;
         border-radius: 2px;
         background-color:rgb(255, 255, 255);
+        margin: 5px 0;
     }
 
     .nav-links {
         position: absolute;
-        right: -100%;
+        right: 0px;
         height: 50vh;
         width: 100%;
         flex-direction: column;
         background-color:rgba(58, 58, 58, 0.7);
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
     }
 
     .left-nav {
@@ -546,4 +552,4 @@ hr {
     .profile-stats, .analytics-row {
         flex-direction: column;
     }
-  }
+}
