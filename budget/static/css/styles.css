@@ -518,6 +518,9 @@ hr {
 
 
 @media only screen and (max-width: 600px) {
+    body {
+        overflow-x: hidden;
+    }
     .burger {
         display: block;
         cursor: pointer;
@@ -533,10 +536,13 @@ hr {
     .nav-links {
         position: absolute;
         right: 0px;
-        height: 50vh;
-        width: 100%;
+        height: 100vh;
+        top: 8vh;
+        background-color: rgb(128, 84, 84);
+        display: flex;
         flex-direction: column;
-        background-color:rgba(58, 58, 58, 0.7);
+        align-items: center;
+        width: 100%;
         transform: translateX(100%);
         transition: transform 0.5s ease-in-out;
     }
