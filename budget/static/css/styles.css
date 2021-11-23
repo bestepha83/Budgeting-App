@@ -511,7 +511,9 @@ hr {
     width: 80%;
 }
 
-
+.stock-content h5, .stock-content p {
+    text-align: left;
+}
 
 @media only screen and (max-width: 600px) {
     body {
@@ -533,7 +535,7 @@ hr {
     .burger {
         display: block;
         cursor: pointer;
-        margin-right: 1rem;
+        margin-right: 1.5rem;
     }
     .line1, .line2, .line3 {
         height: 3px;
@@ -572,8 +574,20 @@ hr {
         width: 100%;
     }
 
+    .profile-section .stat-card, .transactions-section .stat-card {
+        margin: 1rem 0;
+    }
+
     .profile-stats, .analytics-row {
         flex-direction: column;
+    }
+
+    .button-row {
+        width: 90%;
+    }
+
+    .section-expenses {
+        width: 110%;
     }
 }
 
