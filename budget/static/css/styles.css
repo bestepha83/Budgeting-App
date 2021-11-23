@@ -521,12 +521,19 @@ hr {
     .home-section, .login-content, .register-content {
         flex-direction: column;
     }
+
+    .login-content img, .login-content form, .register-content img, .register-content form {
+        width: 80%;
+    }
+
+
     .logo {
         width: 40%;
     }
     .burger {
         display: block;
         cursor: pointer;
+        margin-right: 1rem;
     }
     .line1, .line2, .line3 {
         height: 3px;
@@ -547,8 +554,9 @@ hr {
         justify-content: center;
         align-items: center;
         width: 100%;
-        transform: translateX(100vw);
-        transition: transform 0.4s ease-in-out;
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
+        z-index: -1;
     }
 
     .nav-links a {
@@ -570,5 +578,6 @@ hr {
 }
 
 .nav-active {
-    transform: translateX(0vw);
+    z-index: 99;
+    opacity: 1;
 }
