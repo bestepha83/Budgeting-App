@@ -63,7 +63,7 @@
                 <div class="expense-col category">
                     <span>{{ expense.category }}</span>
                 </div>
-                <a class = "close-icon" name = "action" value = "expense" onclick = "deleteExpense(this), window.location.reload();" data-id = "{{ expense.id }}">
+                <a class = "close-icon" name = "action" value = "expense" onclick = "deleteExpense(this)" data-id = "{{ expense.id }}">
                     <i class="red-text right">X</i>
                 </a>
             </li>
@@ -86,7 +86,7 @@
                 <div class="expense-col category">
                     <span>{{ income.category }}</span>
                 </div>
-                <a class = "close-icon"  name = "action" value = "income" onclick = "deleteIncome(this), window.location.reload();"data-id = "{{ income.id }}">
+                <a class = "close-icon"  name = "action" value = "income" onclick = "deleteIncome(this)" data-id = "{{ income.id }}">
                     <i class="red-text right">X</i>
                 </a>
             </li>

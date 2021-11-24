@@ -49,7 +49,10 @@ def transactions(request, project_slug):
     project_list = Project.objects.all()
     project = get_object_or_404(Project, slug=project_slug)
     if request.method == "GET":
-        return render(request, 'budget/transactions.html', {'project': project, 'project_list': project_list, 'expense_list': project.expenses.all(), 'income_list': project.income.all()})
+        return render(request, 'budget/transactions.html', {
+            'project': project, 'project_list': project_list, 
+            'expense_list': project.expenses.all(), 
+            'income_list': project.income.all()})
     elif request.method == "POST":
         expenseform = ExpenseForm(request.POST)
         incomeform = IncomeForm(request.POST)
@@ -81,23 +84,19 @@ def transactions(request, project_slug):
             ).save()
     elif request.method == 'DELETE':
         id = json.loads(request.body)['id']
-        expense = get_object_or_404(Expense, id=id)
-        expense.delete()
-        # if json.loads(request.body)[type] == 'expense':
-        #     id = json.loads(request.body)['id']
-        #     expense = get_object_or_404(Expense, id=id)
-        #     expense.delete()
-        # if json.loads(request.body)[type] == 'income':
-        #     id = json.loads(request.body)['id']
-        #     income = get_object_or_404(Income, id=id)
-        #     income.delete()
-        return HttpResponse('')
+        try:
+            expense = get_object_or_404(Expense, id=id)
+            expense.delete()
+        except:
+            income = get_object_or_404(Income, id=id)
+            income.delete()
     return render(request, 'budget/transactions.html', {
         'project': project, 
         'project_list': project_list, 
         'expense_list': project.expenses.all(), 
         'income_list': project.income.all()
         })
+
 
 @login_required()
 def analytics(request, project_slug):
