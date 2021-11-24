@@ -3,7 +3,7 @@
 {% include "./header.html" %}
 
 <div class = "transactions-section">
-    <h1>{{ project.name }} Transactions</h1> 
+    <h1 class = "page-header">{{ project.name }} Transactions</h1> 
     <section class="profile-stats">
         <div class = "stat-card">
             <h5>Total Transactions</h6>
@@ -40,7 +40,7 @@
             <div class = 'expense-title'>
                 <h6>Date:</h6>
             </div>
-            <div class = 'expense-title'>
+            <div class = 'expense-title category'>
                 <h6>Category:</h6>
             </div>
             <div class = 'expense-title'>
@@ -52,16 +52,16 @@
             {% for expense in expense_list %}
             <li>
                 <div class="expense-col">
-                    <spanc>{{ expense.title }}</span>
+                    <span>{{ expense.title }}</span>
                 </div>
                 <div class="expense-col">
-                    <spanc>${{ expense.amount }}</span>
+                    <span>${{ expense.amount }}</span>
                 </div>
                 <div class="expense-col">
-                    <spanc>{{ expense.date }}</span>
+                    <span>{{ expense.date }}</span>
                 </div>
-                <div class="expense-col">
-                    <spanc>{{ expense.category }}</span>
+                <div class="expense-col category">
+                    <span>{{ expense.category }}</span>
                 </div>
                 <a class = "close-icon" name = "action" value = "expense" onclick = "deleteExpense(this), window.location.reload();" data-id = "{{ expense.id }}">
                     <i class="red-text right">X</i>
@@ -75,16 +75,16 @@
             {% for income in income_list %}
             <li>
                 <div class="expense-col">
-                    <spanc>{{ income.title }}</span>
+                    <span>{{ income.title }}</span>
                 </div>
                 <div class="expense-col">
-                    <spanc>${{ income.amount }}</span>
+                    <span>${{ income.amount }}</span>
                 </div>
                 <div class="expense-col">
-                    <spanc>{{ income.date }}</span>
+                    <span>{{ income.date }}</span>
                 </div>
-                <div class="expense-col">
-                    <spanc>{{ income.category }}</span>
+                <div class="expense-col category">
+                    <span>{{ income.category }}</span>
                 </div>
                 <a class = "close-icon"  name = "action" value = "income" onclick = "deleteIncome(this), window.location.reload();"data-id = "{{ income.id }}">
                     <i class="red-text right">X</i>

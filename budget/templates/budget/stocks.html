@@ -4,7 +4,7 @@
 {% include "budget/header.html" %}
 
 <div class="stocks-section">
-    <h1>Enter a Stock Symbol</h1>
+    <h1 class = "page-header">Enter a Stock Symbol</h1>
     <form method="POST" class = "stocks-form">
         {% csrf_token %}
         {{ form }}

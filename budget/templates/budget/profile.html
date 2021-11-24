@@ -4,7 +4,7 @@
 {% include "budget/header.html" %}
 
 <div class = "profile-section">
-    <h1>{{ project.name }} Profile</h1>
+    <h1 class = "page-header">{{ project.name }} Profile</h1>
     <section class="profile-stats">
         <div class = "stat-card">
             <h5>Initial Budget</h6>
@@ -27,16 +27,16 @@
             {% for expense in expense_list %}
             <li>
                 <div class="expense-col">
-                    <spanc>{{ expense.title }}</span>
+                    <span>{{ expense.title }}</span>
                 </div>
                 <div class="expense-col">
-                    <spanc>${{ expense.amount }}</span>
+                    <span>${{ expense.amount }}</span>
                 </div>
                 <div class="expense-col">
-                    <spanc>{{ expense.date }}</span>
+                    <span>{{ expense.date }}</span>
                 </div>
-                <div class="expense-col">
-                    <spanc>{{ expense.category }}</span>
+                <div class="expense-col category">
+                    <span>{{ expense.category }}</span>
                 </div>
             </li>
             {% empty %}

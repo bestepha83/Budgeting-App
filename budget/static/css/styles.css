@@ -482,6 +482,7 @@ hr {
 }
 
 
+
 /* Stocks */
 
 .stocks-section {
@@ -528,7 +529,6 @@ hr {
         width: 80%;
     }
 
-
     .logo {
         width: 40%;
     }
@@ -569,9 +569,17 @@ hr {
     .left-nav {
         display: none;
     }
+
     .profile-section, .transactions-section, .analytics-section, .stocks-section {
         left: 0%;
         width: 100%;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .page-header {
+        text-align: center;
     }
 
     .profile-section .stat-card, .transactions-section .stat-card {
@@ -582,12 +590,20 @@ hr {
         flex-direction: column;
     }
 
-    .button-row {
-        width: 90%;
+    .section-expenses .button-row {
+        width: 100%;
     }
 
     .section-expenses {
-        width: 110%;
+        width: 95%;
+    }
+
+    .category {
+        display: none;
+    }
+
+    .analytics-row #container {
+        width: 80%!important;
     }
 }
 
