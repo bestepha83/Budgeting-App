@@ -79,7 +79,7 @@ input:autofill {
 }
 
 .nav-links .dropdown i {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
 }
 
 .nav-links .dropbtn {
@@ -98,7 +98,7 @@ input:autofill {
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 55;
+    z-index: 101;
 }
 
 .nav-links .dropdown-content a {
@@ -116,11 +116,6 @@ input:autofill {
 /* Show the dropdown menu on hover */
 .nav-links .dropdown:hover .dropdown-content {
     display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.nav-links .dropdown:hover .dropbtn {
-    background-color: #f1f1f1;
 }
 
 .left-nav {
