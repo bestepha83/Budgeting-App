@@ -109,12 +109,10 @@ input:autofill {
     text-decoration: none;
 }
 
-/* Change color of dropdown links on hover */
 .nav-links .dropdown-content a:hover {
     background-color: #f1f1f1;
 }
 
-/* Show the dropdown menu on hover */
 .nav-links .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -264,6 +262,25 @@ input:autofill {
 
 .register-content button {
     margin: 1rem 0;
+}
+
+
+/* Logout */
+
+.logout-section {
+    width: 100%;
+}
+
+.logout-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.logout-content img{
+    width: 80%;
 }
 
 
