@@ -52,7 +52,7 @@ input:autofill {
 }
 .logo p {
     font-size: 1.4rem;
-    font-family: 'Readex Pro', sans-serif;
+    font-family: 'Roboto Slab', serif;
     font-stretch: expanded;
 }
 
@@ -193,12 +193,12 @@ input:autofill {
 
 .home-content h1 {
     width: 80%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 .home-content p {
     width: 80%;
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 
 }
 
@@ -223,6 +223,8 @@ input:autofill {
 
 .login-form {
     margin: 1rem 0;
+    outline: none;
+    border: none;
 }
 
 .login-content {
