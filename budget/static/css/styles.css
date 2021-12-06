@@ -44,7 +44,7 @@ input:autofill {
 }
 .logo {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 15%;
     margin-left: 2rem;
@@ -52,6 +52,7 @@ input:autofill {
 }
 .logo img {
     height: 1.5rem;
+    margin-left: .5rem;
 }
 .logo p {
     font-size: 1.4rem;
