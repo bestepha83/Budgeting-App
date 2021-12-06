@@ -46,9 +46,12 @@ input:autofill {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 15%;
+    width: 20%;
     margin-left: 2rem;
     z-index: 100;
+}
+.logo img {
+    height: 85%;
 }
 .logo p {
     font-size: 1.4rem;
