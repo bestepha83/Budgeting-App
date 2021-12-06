@@ -32,8 +32,10 @@
     <div class="project-list">
         {% for project in project_list %}
             <div class="project-card">
-                <h3>{{ project.name }}</h3>   
-                <a href="{% url 'profile' project.slug %}" class="account-button">Check</a>                 
+                <div class="project-card-content">
+                    <h3>{{ project.name }}</h3>   
+                    <a href="{% url 'profile' project.slug %}" class="account-button">Check</a>
+                </div>
             </div>
         {% endfor %}
     </div>

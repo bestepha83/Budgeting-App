@@ -7,18 +7,22 @@
     <h1 class = "page-header">{{ project.name }} Profile</h1>
     <section class="profile-stats">
         <div class = "stat-card">
-            <h5>Initial Budget</h6>
-            <h1>${{ project.budget }}</h1>
+            <div class="stat-card-content">
+                <h5>Initial Budget</h6>
+                <h1>${{ project.budget }}</h1>                
+            </div>
         </div>
         <div class = "stat-card">
-            <h5>Current Balance</h6>
-            {% if project.budget_left > 0 %}
-                <h2>${{ project.budget_left }}</h2>
-            {% elif project.budget_left == 0 %}
-                <h2>${{ project.budget_left }}</h2>
-            {% else %}
-                <h2>${{ project.budget_left }}</h2>
-            {% endif %}
+            <div class="stat-card-content">
+                <h5>Current Balance</h6>
+                {% if project.budget_left > 0 %}
+                    <h2>${{ project.budget_left }}</h2>
+                {% elif project.budget_left == 0 %}
+                    <h2>${{ project.budget_left }}</h2>
+                {% else %}
+                    <h2>${{ project.budget_left }}</h2>
+                {% endif %}                
+            </div>
         </div>
     </section>
     <section class = "section-expenses">

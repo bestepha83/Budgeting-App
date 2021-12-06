@@ -6,22 +6,28 @@
     <h1 class = "page-header">{{ project.name }} Transactions</h1> 
     <section class="profile-stats">
         <div class = "stat-card">
-            <h5>Total Transactions</h6>
-            <h1>{{ project.total_transactions }}</h1>
+            <div class="stat-card-content">
+                <h5>Total Transactions</h6>
+                <h1>{{ project.total_transactions }}</h1>                
+            </div>
         </div>
         <div class = "stat-card">
-            <h5>Initial Budget</h6>
-            <h1>${{ project.budget }}</h1>
+            <div class="stat-card-content">
+                <h5>Initial Budget</h6>
+                <h1>${{ project.budget }}</h1>                
+            </div>
         </div>
         <div class = "stat-card">
-            <h5>Current Balance</h6>
-            {% if project.budget_left > 0 %}
-                <h2>${{ project.budget_left }}</h2>
-            {% elif project.budget_left == 0 %}
-                <h2>${{ project.budget_left }}</h2>
-            {% else %}
-                <h2>${{ project.budget_left }}</h2>
-            {% endif %}
+            <div class="stat-card-content">
+                <h5>Current Balance</h6>
+                {% if project.budget_left > 0 %}
+                    <h2>${{ project.budget_left }}</h2>
+                {% elif project.budget_left == 0 %}
+                    <h2>${{ project.budget_left }}</h2>
+                {% else %}
+                    <h2>${{ project.budget_left }}</h2>
+                {% endif %}                
+            </div>
         </div>
     </section>
 
@@ -92,7 +98,7 @@
             </li>
             {% empty %}
             <div class = "">
-                <h3 class='grey-text'>You have no income yet</h3>
+                <h3>You have no income yet</h3>
             </div>
             {% endfor %}
         </ul>
@@ -114,7 +120,7 @@
             <input type = "date" name = "date" id = "date">
 
             <label class="f1">Category<br>
-                <select class="Category" name="category" required><br>
+                <select class="Category transaction-category" name="category" required><br>
                     <option value="Food">Food</option>
                     <option value="Travel">Travel</option>
                     <option value="Shopping">Shopping</option>
