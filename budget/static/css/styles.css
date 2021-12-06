@@ -49,12 +49,13 @@ input:autofill {
     width: 15%;
     margin-left: 2rem;
     z-index: 100;
-    font-family: 'Readex Pro', sans-serif;}
-
+}
 .logo p {
     font-size: 1.4rem;
-    font-family: 'Archivo', sans-serif;
+    font-family: 'Readex Pro', sans-serif;
+    font-stretch: expanded;
 }
+
 
 .burger {
     display: none;
@@ -138,7 +139,7 @@ input:autofill {
 .left-nav .project-card {
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     width: 80%;
     height: 14rem;
     background-color:#262626;
@@ -184,7 +185,7 @@ input:autofill {
 .home-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 60%;
     height: 50%;
@@ -192,10 +193,13 @@ input:autofill {
 
 .home-content h1 {
     width: 80%;
+    margin-bottom: 1rem;
 }
 .home-content p {
     width: 80%;
     font-size: 2rem;
+    margin-bottom: 1rem;
+
 }
 
 .home-form {
@@ -289,7 +293,7 @@ input:autofill {
 }
 
 .logout-content img{
-    width: 50%;
+    width: 25%;
 }
 
 
