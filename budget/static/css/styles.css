@@ -51,7 +51,7 @@ input:autofill {
     z-index: 100;
 }
 .logo img {
-    height: 85%;
+    height: 1rem;
 }
 .logo p {
     font-size: 1.4rem;
