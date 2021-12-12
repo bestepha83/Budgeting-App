@@ -52,7 +52,7 @@ input:autofill {
 }
 .logo img {
     height: 1.5rem;
-    margin-left: .5rem;
+    margin-left: .75rem;
 }
 .logo p {
     font-size: 1.4rem;
@@ -95,13 +95,13 @@ input:autofill {
 }
 
 .nav-links .dropdown-content {
-    display: none;
+    display: block;
     position: absolute;
     top: 100px;
     right: 300px;
     background-color: #f9f9f9;
-    width: 160px;
-    height: 100px;
+    width: 500px;
+    height: 500px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 101;
 }
@@ -287,6 +287,7 @@ input:autofill {
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100vh;
 }
 
 .logout-content {
@@ -609,6 +610,12 @@ hr {
     text-align: left;
 }
 
+@media only screen and (max-width: 900px) {
+    .left-nav {
+        display: none;
+    }
+
+}
 @media only screen and (max-width: 600px) {
     body {
         overflow-x: hidden;
@@ -657,10 +664,6 @@ hr {
     .nav-links a, .nav-links i {
         font-size: 2.5rem;
         margin: 1.5rem 0;
-    }
-
-    .left-nav {
-        display: none;
     }
 
     .profile-section, .transactions-section, .analytics-section, .stocks-section {

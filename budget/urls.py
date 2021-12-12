@@ -18,6 +18,8 @@ urlpatterns = [
           name="expense_category_info"),
      path('<slug:project_slug>/expense_time_info', views.expense_time_info,
           name="expense_time_info"),
+     path('<slug:project_slug>/income_time_info', views.income_time_info,
+          name="income_time_info"),
      path('<slug:project_slug>/analytics', views.analytics,
           name="analytics"),
      path('<slug:project_slug>/stocks', views.stocks, name='stocks'),     

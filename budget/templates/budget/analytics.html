@@ -14,9 +14,13 @@
             <h4>Expense Per Category</h4>
             <canvas id="pieChart" width="400" height="400"></canvas>
         </div>
-        <div id="container" style="width: 55%;">
-            <h4>Transactions Over Time</h4>
-            <canvas id="lineChart" width="400" height="400"></canvas>
+        <div id="container" style="width: 40%;">
+            <h4>Expenses Over Time</h4>
+            <canvas id="expenseLine" width="400" height="400"></canvas>
+        </div>
+        <div id="container" style="width: 40%;">
+            <h4>Income Over Time</h4>
+            <canvas id="incomeLine" width="400" height="400"></canvas>
         </div>
     </div>
 </section>
@@ -87,8 +91,8 @@
     });
     };
 
-    const renderLineChart = (data, labels) => {
-    var ctx = document.getElementById("lineChart").getContext("2d");
+    const renderExpenseLineChart = (data, labels) => {
+    var ctx = document.getElementById("expenseLine").getContext("2d");
     var myChart = new Chart(ctx, {
         type: "line",
         data: {
@@ -96,6 +100,39 @@
         datasets: [
             {
             label: "Last 6 months expenses",
+            data: data,
+            backgroundColor: [
+                "rgba(153, 102, 255, 0.8)",
+                "rgba(255, 159, 64, 0.8)",
+                "rgba(255, 255, 255, 1)",
+                "rgba(255, 255, 255, 1)",
+                "rgba(153, 102, 255, 0.8)",
+                "rgba(255, 159, 64, 0.8)",
+            ],
+            borderColor: [
+                "rgba(255, 255, 255, 1)",
+                "rgba(255, 255, 255, 1)",
+                "rgba(255, 255, 255, 1)",
+                "rgba(255, 255, 255, 1)",
+            ],
+            borderWidth: 1,
+            },
+        ],
+        },
+        options: {
+        },
+    });
+    };
+
+    const renderIncomeLineChart = (data, labels) => {
+    var ctx = document.getElementById("incomeLine").getContext("2d");
+    var myChart = new Chart(ctx, {
+        type: "line",
+        data: {
+        labels: labels,
+        datasets: [
+            {
+            label: "Last 6 months incomes",
             data: data,
             backgroundColor: [
                 "rgba(153, 102, 255, 0.8)",
@@ -152,7 +189,7 @@
         });
     };
 
-    const getLineChartData = () => {
+    const getExpenseLineChartData = () => {
     console.log("fetching");
     fetch("expense_time_info")
         .then((res) => res.json())
@@ -164,13 +201,29 @@
             Object.values(date_data),
         ];
 
-        renderLineChart(data, labels);
+        renderExpenseLineChart(data, labels);
+        });
+    };
+    const getIncomeLineChartData = () => {
+    console.log("fetching");
+    fetch("income_time_info")
+        .then((res) => res.json())
+        .then((results) => {
+        console.log("results", results);
+        const date_data = results.income_time_info;
+        const [labels, data] = [
+            Object.keys(date_data),
+            Object.values(date_data),
+        ];
+
+        renderIncomeLineChart(data, labels);
         });
     };
 
     document.onload = getBarChartData();
     document.onload = getPieChartData();
-    document.onload = getLineChartData();
+    document.onload = getExpenseLineChartData();
+    document.onload = getIncomeLineChartData();
 </script>
     
 

@@ -185,6 +185,30 @@ def expense_time_info(request, project_slug):
 
     return JsonResponse({'expense_time_info': finalrep}, safe=False)
 
+def income_time_info(request, project_slug):
+    project = get_object_or_404(Project, slug=project_slug)
+    incomes = project.income.all()
+    finalrep = {}
+
+    def get_date(income):
+        return str(income.date)
+    date_list = list(set(map(get_date, incomes)))
+    date_list.sort()
+    
+    def get_income_date_amount(date):
+        amount = 0
+        filtered_by_date = incomes.filter(date=date)
+
+        for item in filtered_by_date:
+            amount += item.amount
+        return amount
+
+    for x in incomes:
+        for y in date_list:
+            finalrep[y] = get_income_date_amount(y)
+
+    return JsonResponse({'income_time_info': finalrep}, safe=False)
+
 @login_required()  
 def stocks(request, project_slug):
     project = get_object_or_404(Project, slug=project_slug)

@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 import datetime
 
-SELECT_CATEGORY_CHOICES = [
+EXPENSE_CATEGORY_CHOICES = [
     ("Food","Food"),
     ("Travel","Travel"),
     ("Shopping","Shopping"),
@@ -10,6 +10,12 @@ SELECT_CATEGORY_CHOICES = [
     ("Entertainment","Entertainment"),
     ("Other","Other")
 ]
+INCOME_CATEGORY_CHOICES = [
+    ("Paycheck","Paycheck"),
+    ("Side Hustle","Side Hustle"),
+    ("Gift","Gift"),
+]
+
 
 class Project(models.Model):
     name = models.CharField(max_length=100)
@@ -43,7 +49,7 @@ class Expense(models.Model):
     amount = models.DecimalField(max_digits=8, decimal_places=2)
     date = models.DateField(("Date"), default=datetime.date.today)
     type = 'expense'
-    category = models.CharField( max_length = 20, choices = SELECT_CATEGORY_CHOICES , default ='Food')
+    category = models.CharField( max_length = 20, choices = EXPENSE_CATEGORY_CHOICES , default ='Food')
     
     def __str__(self):
         return self.category
@@ -57,7 +63,7 @@ class Income(models.Model):
     amount = models.DecimalField(max_digits=8, decimal_places=2)
     date = models.DateField(("Date"), default=datetime.date.today)
     type = 'income'
-    category = models.CharField( max_length = 20, choices = SELECT_CATEGORY_CHOICES , default ='Food')
+    category = models.CharField( max_length = 20, choices = INCOME_CATEGORY_CHOICES , default ='Paycheck')
     
     def __str__(self):
         return self.category
