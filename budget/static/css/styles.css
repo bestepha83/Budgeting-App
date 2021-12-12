@@ -46,13 +46,14 @@ input:autofill {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15%;
+    width: 20%;
     margin-left: 2rem;
     z-index: 100;
 }
 .logo img {
     height: 1.5rem;
     margin-left: .75rem;
+    margin-right: 50px;
 }
 .logo p {
     font-size: 1.4rem;
@@ -614,6 +615,13 @@ hr {
     .left-nav {
         display: none;
     }
+    .home-form {
+        width: 80%;
+    }
+    .profile-section, .transactions-section, .analytics-section, .stocks-section {
+        left: 0%;
+        width: 100%;
+    }
 
 }
 @media only screen and (max-width: 600px) {
@@ -667,8 +675,6 @@ hr {
     }
 
     .profile-section, .transactions-section, .analytics-section, .stocks-section {
-        left: 0%;
-        width: 100%;
         padding: 0;
         justify-content: center;
         align-items: center;
