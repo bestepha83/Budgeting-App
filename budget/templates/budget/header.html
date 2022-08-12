@@ -20,10 +20,10 @@
         <a href="{% url 'stocks' project.slug %}">Stocks</a>
         <div class="dropdown">
             <i class="fas fa-user-circle dropbtn"></i>
-            <div class="dropdown-content">
-                <a href="{% url 'list' %}">Accounts</a>        
-                <a href="{% url 'logout' %}">Logout</a>        
-            </div>
+            <ul class="dropdown-content">
+                <li><a href="{% url 'list' %}">Accounts</a></li>    
+                <li><a href="{% url 'logout' %}">Logout</a></li>     
+            </ul>
         </div>
     </div>
 </nav>
