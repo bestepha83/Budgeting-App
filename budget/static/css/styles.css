@@ -337,7 +337,6 @@ hr {
 .account-cards {
     width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 2rem;
